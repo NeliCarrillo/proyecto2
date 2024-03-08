@@ -4,7 +4,7 @@ package EDD;
  * Clase que define el ABB que guarda las reservaciones del hotel.
  * @author nelsoncarrillo
  */
-public class ABBReservas {
+public class TreeReservas {
 
     //Atributos de la clase
     private NodoReservas root;
@@ -12,7 +12,7 @@ public class ABBReservas {
     /**
      * Constructor de la clase
      */
-    public ABBReservas() {
+    public TreeReservas() {
         this.root = null;
     }
 

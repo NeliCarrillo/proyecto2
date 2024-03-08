@@ -4,6 +4,8 @@
  */
 package main;
 
+import Files.BasicFunctions;
+
 /**
  *
  * @author nelsoncarrillo
@@ -15,6 +17,10 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        BasicFunctions newo = new BasicFunctions();
+        newo.Reservas();
+       
     }
     
 }
