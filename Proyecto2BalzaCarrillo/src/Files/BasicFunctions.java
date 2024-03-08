@@ -1,8 +1,10 @@
 package Files;
 import EDD.TreeReservas;
+import Hotel.Client;
 import com.csvreader.CsvReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 /**
  *Clase de funciones para iniciar el programa.
  * Ejemplo: crear &aacute;rboles, hash,etc.
@@ -25,7 +27,7 @@ public class BasicFunctions {
         
         try{
             
-            CsvReader leerUsuarios = new CsvReader("Reservaciones.csv");
+            CsvReader leerUsuarios = new CsvReader("test//Reservaciones.csv");
             leerUsuarios.readHeaders();
             
             // Mientras haya lineas se obtienen los datos del archivo
@@ -44,8 +46,8 @@ public class BasicFunctions {
                 String llegada = leerUsuarios.get(7);
                 String salida = leerUsuarios.get(8);
                 
-                //Client cliente = new Client(cedula,f_name,l_name,email,genero,tipo_hab,celular,llegada,salida,-1);
-                //reservas.insertNodo(reservas.getRoot(), cliente);
+                Client cliente = new Client(cedula,f_name,l_name,email,genero,tipo_hab,celular,llegada,salida,-1);
+                reservas.insertNodo(reservas.getRoot(), cliente);
                 
             }
             

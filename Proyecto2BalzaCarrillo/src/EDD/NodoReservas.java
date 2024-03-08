@@ -1,19 +1,21 @@
 package EDD;
 
+import Hotel.Client;
+
 /**
  * Clase que define los nodos que conforman el ABB que almacena las reservaciones del hotel.
  * @author nelsoncarrillo
  */
 public class NodoReservas {
     //Atributos de la clase
-    private int element;
+    private Client element;
     private NodoReservas rightSon,leftSon,father;
 
     /**
      * Constructor de la clase
      * @param element, cliente a almacenar en el nodo
      */
-    public NodoReservas(int element) {
+    public NodoReservas(Client element) {
         this.element = element;
         this.rightSon = this.leftSon = this.father = null;
     }
@@ -22,7 +24,7 @@ public class NodoReservas {
      * Metodo que permite obtener el cliente almacenado en un nodo
      * @return cliente almacenado en el nodo
      */
-    public int getElement() {
+    public Client getElement() {
         return element;
     }
 
@@ -30,7 +32,7 @@ public class NodoReservas {
      * Metodo que permite modificar el cliente almacenado en un nodo
      * @param element, cliente nuevo a almacenar
      */
-    public void setElement(int element) {
+    public void setElement(Client element) {
         this.element = element;
     }
 
