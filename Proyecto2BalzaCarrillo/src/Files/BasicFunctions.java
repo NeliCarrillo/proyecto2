@@ -1,12 +1,12 @@
 package Files;
-import EDD.TreeReservas;
-import Hotel.Client;
+import ABB.ABBReservaciones;
+import Hotel.Cliente;
 import com.csvreader.CsvReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- *Clase de funciones para iniciar el programa.
+ * Clase de funciones para iniciar el programa.
  * Ejemplo: crear &aacute;rboles, hash,etc.
  * 
  * @version 7 marzo 2024
@@ -15,15 +15,15 @@ import java.io.IOException;
 public class BasicFunctions {
     
     /**
-     * M&eacute;todo que Guarda las Reservas del archivo CSV.
-     * Esto mediante el uso de la libreria javacsv
-     * 
-     * @author nelsoncarrillo
-     * @version 7 marzo 2024
-     * @return ABB que contiene las reservaciones del hotel
-     */
-    public TreeReservas Reservas(){
-        TreeReservas reservas = new TreeReservas(); 
+    * M&eacute;todo que Guarda las Reservas del archivo CSV.
+    * Esto mediante el uso de la libreria javacsv
+    * 
+    * @author nelsoncarrillo
+    * @version 7 marzo 2024
+    * @return ABB que contiene las reservaciones del hotel
+    */
+    public ABBReservaciones Reservas(){
+        ABBReservaciones reservas = new ABBReservaciones(); 
         
         try{
             
@@ -46,7 +46,7 @@ public class BasicFunctions {
                 String llegada = leerUsuarios.get(7);
                 String salida = leerUsuarios.get(8);
                 
-                Client cliente = new Client(cedula,f_name,l_name,email,genero,tipo_hab,celular,llegada,salida,-1);
+                Cliente cliente = new Cliente(cedula,f_name,l_name,email,genero,tipo_hab,celular,llegada,salida,-1);
                 reservas.insertNodo(reservas.getRoot(), cliente);
                 
             }

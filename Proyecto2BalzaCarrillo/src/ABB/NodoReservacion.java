@@ -1,30 +1,38 @@
-package EDD;
+package ABB;
 
-import Hotel.Client;
+import Hotel.Cliente;
 
 /**
- * Clase que define los nodos que conforman el ABB que almacena las reservaciones del hotel.
+ * Clase que define los nodos que conforman el ABB.
+ * ABB pues que almacena las reservaciones del hotel.
+ * 
+ * @version 8 marzo 2024
  * @author nelsoncarrillo
  */
-public class NodoReservas {
+public class NodoReservacion {
+    
     //Atributos de la clase
-    private Client element;
-    private NodoReservas rightSon,leftSon,father;
+    private Cliente element;
+    private NodoReservacion rightSon,leftSon,father;
 
     /**
-     * Constructor de la clase
-     * @param element, cliente a almacenar en el nodo
+     * Constructor de la clase.
+     * Crea una instancia de objeto.
+     * 
+     * @param element cliente a almacenar en el nodo.
      */
-    public NodoReservas(Client element) {
+    public NodoReservacion(Cliente element) {
         this.element = element;
         this.rightSon = this.leftSon = this.father = null;
     }
 
     /**
-     * Metodo que permite obtener el cliente almacenado en un nodo
+     * Getter del cliente.
+     * Almacenado en el nodo.
+     * 
      * @return cliente almacenado en el nodo
      */
-    public Client getElement() {
+    public Cliente getElement() {
         return element;
     }
 
@@ -32,7 +40,7 @@ public class NodoReservas {
      * Metodo que permite modificar el cliente almacenado en un nodo
      * @param element, cliente nuevo a almacenar
      */
-    public void setElement(Client element) {
+    public void setElement(Cliente element) {
         this.element = element;
     }
 
@@ -40,7 +48,7 @@ public class NodoReservas {
      * Metodo que permite obtener el hijo derecho del nodo actual
      * @return hijo derecho del nodo actual
      */
-    public NodoReservas getRightSon() {
+    public NodoReservacion getRightSon() {
         return rightSon;
     }
 
@@ -48,7 +56,7 @@ public class NodoReservas {
      * Metodo que permite modificar el hijo derecho del nodo actual
      * @param rightSon, nuevo hijo derecho del nodo actual
      */
-    public void setRightSon(NodoReservas rightSon) {
+    public void setRightSon(NodoReservacion rightSon) {
         this.rightSon = rightSon;
     }
 
@@ -56,7 +64,7 @@ public class NodoReservas {
      * Metodo que permite obtener el hijo izquierdo del nodo actual
      * @return hijo izquierdo del nodo actual
      */
-    public NodoReservas getLeftSon() {
+    public NodoReservacion getLeftSon() {
         return leftSon;
     }
 
@@ -64,7 +72,7 @@ public class NodoReservas {
      * Metodo que permite modificar el hijo izquierdo del nodo actual
      * @param leftSon, nuevo hijo izquierdo del nodo actual
      */
-    public void setLeftSon(NodoReservas leftSon) {
+    public void setLeftSon(NodoReservacion leftSon) {
         this.leftSon = leftSon;
     }
 
@@ -72,7 +80,7 @@ public class NodoReservas {
      * Metodo que permite obtener el padre del nodo actual
      * @return padre del nodo actual
      */
-    public NodoReservas getFather() {
+    public NodoReservacion getFather() {
         return father;
     }
 
@@ -80,7 +88,7 @@ public class NodoReservas {
      * Metodo que permite modificar el padre del nodo actual
      * @param father, nuevo padre del nodo actual
      */
-    public void setFather(NodoReservas father) {
+    public void setFather(NodoReservacion father) {
         this.father = father;
     }
     
