@@ -84,8 +84,8 @@ public class ABBReservaciones {
     
     /**
      * Permite obtener un objeto de tipo Client a partir de su CI.
-     * Se bsuca recursivamente si es mayor o menor la CI se va moviendo entre
-     * los nodos constitutivos del ABB.
+     * Se busca recursivamente si es mayor o menor la CI se va moviendo entre
+     * los nodos constitutivos (subtrees) del ABB.
      * 
      * @param root, raiz del arbol
      * @param cedula del cliente a buscar
@@ -97,7 +97,7 @@ public class ABBReservaciones {
             if (root == null) {
                 return null;
             } else {
-                if (cedula ==root.getElement().getCedula()) {
+                if (cedula == root.getElement().getCedula()) {
                     return root.getElement();
                 } else if (cedula < root.getElement().getCedula()) {
                     return buscarReservacion(root.getLeftSon(), cedula);

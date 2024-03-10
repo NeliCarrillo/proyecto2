@@ -6,6 +6,7 @@ package GUI;
 
 import ABB.ABBReservaciones;
 import Hotel.Cliente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,10 +14,11 @@ import Hotel.Cliente;
  */
 public class BuscarReservacion extends javax.swing.JFrame {
     
-    private ABBReservaciones arbol;
+    private final ABBReservaciones arbol;
     
     /**
      * Creates new form BuscarReservacion
+     * @param arbol
      */
     public BuscarReservacion(ABBReservaciones arbol) {
         initComponents();
@@ -45,6 +47,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
         Reservacion = new javax.swing.JTextArea();
         Buscar = new javax.swing.JButton();
         Atras = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,19 +66,21 @@ public class BuscarReservacion extends javax.swing.JFrame {
                 CedulaActionPerformed(evt);
             }
         });
-        jPanel1.add(Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 200, -1));
+        jPanel1.add(Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 200, -1));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Número de cédula:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Datos de Reservación:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         Reservacion.setColumns(20);
         Reservacion.setRows(5);
         jScrollPane1.setViewportView(Reservacion);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 550, 140));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 550, 120));
 
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,20 +88,23 @@ public class BuscarReservacion extends javax.swing.JFrame {
                 BuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 100, -1));
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 100, -1));
 
         Atras.setText("Atrás");
-        jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 90, -1));
+        jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 90, -1));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotels Business Website in Brown White Modern Elegance Style.png"))); // NOI18N
+        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -113,12 +121,12 @@ public class BuscarReservacion extends javax.swing.JFrame {
             int ci = Integer.parseInt(ci1);
             Cliente client =this.arbol.buscarReservacion(this.arbol.getRoot(), ci);
             if(client==null){
-                System.out.println("no hay.");
+                JOptionPane.showMessageDialog(null, "No se consiguieron reservaciones con la CI\n"+Cedula.getText(), "No se encontró", JOptionPane.INFORMATION_MESSAGE);
             }else{
                 Reservacion.setText(client.getName()+"\n"+client.getLastName());
             }
         }catch(Exception e){
-            System.out.println("error.");
+            JOptionPane.showMessageDialog(null, "Ingrese un número de cédula válido.\nEj. XX.XXX.XXX ó XXXXXXXX", "Input Incorrecto", JOptionPane.ERROR_MESSAGE);
         }
         Cedula.setText("");
     }//GEN-LAST:event_BuscarActionPerformed
@@ -166,6 +174,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
     private javax.swing.JTextField Cedula;
     private javax.swing.JButton Exit;
     private javax.swing.JTextArea Reservacion;
+    private javax.swing.JLabel background;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

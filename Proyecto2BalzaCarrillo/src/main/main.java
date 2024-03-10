@@ -22,10 +22,10 @@ public class main {
         // TODO code application logic here
         
         //esto deberia ir en el codigo de la interfaz prinicpal lo dejo aqui para probar
-        //BasicFunctions nuevoss = new BasicFunctions();
-       // ABBReservaciones arbol = nuevoss.Reservas();
-       // BuscarReservacion nuevo = new BuscarReservacion(arbol);
-        //nuevo.setVisible(true);
+        BasicFunctions nuevoss = new BasicFunctions();
+        ABBReservaciones arbol = nuevoss.Reservas();
+       BuscarReservacion nuevo = new BuscarReservacion(arbol);
+        nuevo.setVisible(true);
         //Hasta aqui
         
        
