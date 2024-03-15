@@ -7,6 +7,7 @@ package main;
 import ABB.ABBReservaciones;
 import Files.BasicFunctions;
 import GUI.BuscarReservacion;
+import GUI.MenuPrincipal;
 
 
 /**
@@ -20,13 +21,8 @@ public class main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        //esto deberia ir en el codigo de la interfaz prinicpal lo dejo aqui para probar
-        BasicFunctions nuevoss = new BasicFunctions();
-        ABBReservaciones arbol = nuevoss.Reservas();
-       BuscarReservacion nuevo = new BuscarReservacion(arbol);
-        nuevo.setVisible(true);
-        //Hasta aqui
+        MenuPrincipal inicio = new MenuPrincipal();
+        inicio.setVisible(true);
         
        
     }
