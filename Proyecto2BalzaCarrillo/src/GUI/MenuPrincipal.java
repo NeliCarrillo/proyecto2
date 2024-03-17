@@ -12,6 +12,8 @@ import Files.BasicFunctions;
  * @author nelsoncarrillo
  */
 public class MenuPrincipal extends javax.swing.JFrame {
+    
+    private BuscarReservacion buscar;
 
     /**
      * Creates new form MenuPrincipal
@@ -33,18 +35,35 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         BuscarReservacion = new javax.swing.JButton();
+        Exit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BuscarReservacion.setText("Buscar Reservacion");
+        BuscarReservacion.setBackground(new java.awt.Color(255, 204, 204));
+        BuscarReservacion.setFont(new java.awt.Font("Noteworthy", 1, 13)); // NOI18N
+        BuscarReservacion.setText("Buscar Reservación");
         BuscarReservacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarReservacionActionPerformed(evt);
             }
         });
-        jPanel1.add(BuscarReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 162, -1, -1));
+        jPanel1.add(BuscarReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+
+        Exit.setBackground(new java.awt.Color(255, 0, 51));
+        Exit.setForeground(new java.awt.Color(255, 255, 255));
+        Exit.setText("X");
+        Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 70, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/principal.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 680, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,7 +73,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -62,11 +81,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void BuscarReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarReservacionActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         BasicFunctions nuevoss = new BasicFunctions();
         ABBReservaciones arbol = nuevoss.Reservas();
-       BuscarReservacion nuevo = new BuscarReservacion(arbol);
-        nuevo.setVisible(true);
+        this.buscar = new BuscarReservacion(arbol,this);
+        buscar.setVisible(false);
+        this.buscar.setVisible(true);
     }//GEN-LAST:event_BuscarReservacionActionPerformed
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_ExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,6 +131,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BuscarReservacion;
+    private javax.swing.JButton Exit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

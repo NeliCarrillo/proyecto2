@@ -14,16 +14,18 @@ import javax.swing.JOptionPane;
  */
 public class BuscarReservacion extends javax.swing.JFrame {
     
+    private MenuPrincipal menu;
     private final ABBReservaciones arbol;
     
     /**
      * Creates new form BuscarReservacion
      * @param arbol
      */
-    public BuscarReservacion(ABBReservaciones arbol) {
+    public BuscarReservacion(ABBReservaciones arbol, MenuPrincipal muns) {
         initComponents();
         Cedula.setText("");
         Reservacion.setText("");
+        this.menu=muns;
         setLocationRelativeTo(null);
         setResizable(false);
         this.arbol=arbol;
@@ -91,6 +93,11 @@ public class BuscarReservacion extends javax.swing.JFrame {
         jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 100, -1));
 
         Atras.setText("Atrás");
+        Atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtrasActionPerformed(evt);
+            }
+        });
         jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 90, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotels Business Website in Brown White Modern Elegance Style.png"))); // NOI18N
@@ -135,6 +142,13 @@ public class BuscarReservacion extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
+
+    private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
+        // TODO add your handling code here
+        this.menu.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_AtrasActionPerformed
 
     /**
      * @param args the command line arguments
