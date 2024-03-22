@@ -5,7 +5,7 @@
 package main;
 
 import ABB.ABBReservaciones;
-import Files.BasicFunctions;
+import Functions.BasicFunctions;
 import GUI.BuscarReservacion;
 import GUI.MenuPrincipal;
 

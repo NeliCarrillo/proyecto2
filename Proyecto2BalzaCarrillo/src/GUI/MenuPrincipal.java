@@ -5,7 +5,7 @@
 package GUI;
 
 import ABB.ABBReservaciones;
-import Files.BasicFunctions;
+import Functions.BasicFunctions;
 
 /**
  *
