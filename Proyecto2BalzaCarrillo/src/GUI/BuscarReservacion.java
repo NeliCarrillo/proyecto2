@@ -26,6 +26,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
         initComponents();
         Cedula.setText("");
         Reservacion.setText("");
+        Reservacion.setEditable(false);
         this.menu=muns;
         setLocationRelativeTo(null);
         setResizable(false);
@@ -42,7 +43,6 @@ public class BuscarReservacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Exit = new javax.swing.JButton();
         Cedula = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -55,15 +55,6 @@ public class BuscarReservacion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Exit.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        Exit.setText("X");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 10, 60, -1));
 
         Cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,10 +74,11 @@ public class BuscarReservacion extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         Reservacion.setColumns(20);
+        Reservacion.setFont(new java.awt.Font("Noto Nastaliq Urdu", 1, 13)); // NOI18N
         Reservacion.setRows(5);
         jScrollPane1.setViewportView(Reservacion);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 550, 120));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 550, 140));
 
         Buscar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         Buscar.setText("Buscar");
@@ -104,7 +96,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
                 AtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 90, -1));
+        jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 90, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotels Business Website in Brown White Modern Elegance Style.png"))); // NOI18N
         jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 310));
@@ -143,11 +135,6 @@ public class BuscarReservacion extends javax.swing.JFrame {
         }
         Cedula.setText("");
     }//GEN-LAST:event_BuscarActionPerformed
-
-    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_ExitActionPerformed
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
         // TODO add your handling code here
@@ -192,7 +179,6 @@ public class BuscarReservacion extends javax.swing.JFrame {
     private javax.swing.JButton Atras;
     private javax.swing.JButton Buscar;
     private javax.swing.JTextField Cedula;
-    private javax.swing.JButton Exit;
     private javax.swing.JTextArea Reservacion;
     private javax.swing.JLabel background;
     private javax.swing.JLabel jLabel1;

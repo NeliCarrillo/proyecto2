@@ -25,6 +25,8 @@ public class HistorialHabitacion extends javax.swing.JFrame {
     public HistorialHabitacion(ABBHistorial arbol,MenuPrincipal muns) {
         initComponents();
         setLocationRelativeTo(null);
+        datos.setEditable(false);
+        datos.setText("");
         setResizable(false);
         this.historial=arbol;
         this.menu=muns;
@@ -40,7 +42,6 @@ public class HistorialHabitacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Exit = new javax.swing.JButton();
         Atras = new javax.swing.JButton();
         title = new javax.swing.JLabel();
         hab = new javax.swing.JTextField();
@@ -55,14 +56,7 @@ public class HistorialHabitacion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Exit.setText("X");
-        Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 60, -1));
-
+        Atras.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         Atras.setText("Atrás");
         Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +82,7 @@ public class HistorialHabitacion extends javax.swing.JFrame {
         jLabel4.setText("Hab.");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 40, -1));
 
+        Buscar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +97,7 @@ public class HistorialHabitacion extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         datos.setColumns(20);
+        datos.setFont(new java.awt.Font("Noto Nastaliq Urdu", 1, 13)); // NOI18N
         datos.setRows(5);
         jScrollPane1.setViewportView(datos);
 
@@ -123,11 +119,6 @@ public class HistorialHabitacion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_ExitActionPerformed
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
         // TODO add your handling code here:
@@ -151,7 +142,7 @@ public class HistorialHabitacion extends javax.swing.JFrame {
                 String info = "";
                 for (int i = 0; i < history.getSize(); i++) {
                     Client cliente = (Client) history.getDato(i).getElement();
-                    info += "~ "+cliente.getName()+" "+cliente.getLastName()+"\n";
+                    info += "~ "+cliente.getName()+" "+cliente.getLastName()+" CI: "+cliente.getCedula()+"\n";
                 }
                 datos.setText(info);
                 hab.setText("");
@@ -209,7 +200,6 @@ public class HistorialHabitacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
     private javax.swing.JButton Buscar;
-    private javax.swing.JButton Exit;
     private javax.swing.JTextArea datos;
     private javax.swing.JTextField hab;
     private javax.swing.JLabel jLabel1;

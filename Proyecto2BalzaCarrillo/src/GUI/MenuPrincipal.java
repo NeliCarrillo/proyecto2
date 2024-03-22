@@ -100,17 +100,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.buscar.setVisible(true);
     }//GEN-LAST:event_BuscarReservacionActionPerformed
 
-    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_ExitActionPerformed
-
     private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         this.historial = new HistorialHabitacion(func.crearHistorial(func.Historial()),this);
         this.historial.setVisible(true);
     }//GEN-LAST:event_HistorialActionPerformed
+
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_ExitActionPerformed
 
     /**
      * @param args the command line arguments
