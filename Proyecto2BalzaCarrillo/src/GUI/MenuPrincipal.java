@@ -15,6 +15,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     private BuscarReservacion buscar;
     private HistorialHabitacion historial;
+    private final BasicFunctions func;
 
     /**
      * Creates new form MenuPrincipal
@@ -23,6 +24,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.func = new BasicFunctions();
     }
 
     /**
@@ -94,9 +96,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void BuscarReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarReservacionActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        BasicFunctions nuevoss = new BasicFunctions();
-        ABBReservaciones arbol = nuevoss.Reservas();
-        this.buscar = new BuscarReservacion(arbol,this);
+        this.buscar = new BuscarReservacion(func.Reservas(),this);
         this.buscar.setVisible(true);
     }//GEN-LAST:event_BuscarReservacionActionPerformed
 
@@ -108,7 +108,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.historial = new HistorialHabitacion(this);
+        this.historial = new HistorialHabitacion(func.crearHistorial(func.Historial()),this);
         this.historial.setVisible(true);
     }//GEN-LAST:event_HistorialActionPerformed
 

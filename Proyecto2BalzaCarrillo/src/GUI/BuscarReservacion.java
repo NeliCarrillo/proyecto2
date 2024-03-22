@@ -56,6 +56,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Exit.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,10 +72,12 @@ public class BuscarReservacion extends javax.swing.JFrame {
         });
         jPanel1.add(Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 200, -1));
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Número de cédula:");
+        jLabel1.setText("Ingrese Número de Cédula del cliente para obtener los datos de su reservación:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Datos de Reservación:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
@@ -85,14 +88,16 @@ public class BuscarReservacion extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 550, 120));
 
+        Buscar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarActionPerformed(evt);
             }
         });
-        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 100, -1));
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 100, -1));
 
+        Atras.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         Atras.setText("Atrás");
         Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
