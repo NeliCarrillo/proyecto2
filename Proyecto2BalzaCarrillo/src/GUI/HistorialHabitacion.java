@@ -4,25 +4,22 @@
  */
 package GUI;
 
-import ABB.ABBReservaciones;
-import Functions.BasicFunctions;
-
 /**
  *
  * @author nelsoncarrillo
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class HistorialHabitacion extends javax.swing.JFrame {
     
-    private BuscarReservacion buscar;
-    private HistorialHabitacion historial;
-
+    private MenuPrincipal menu;
     /**
-     * Creates new form MenuPrincipal
+     * Creates new form HistorialHabitacion
+     * @param muns
      */
-    public MenuPrincipal() {
+    public HistorialHabitacion(MenuPrincipal muns) {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        this.menu=muns;
     }
 
     /**
@@ -35,47 +32,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        BuscarReservacion = new javax.swing.JButton();
         Exit = new javax.swing.JButton();
-        Historial = new javax.swing.JButton();
+        Atras = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BuscarReservacion.setBackground(new java.awt.Color(255, 204, 204));
-        BuscarReservacion.setFont(new java.awt.Font("Noteworthy", 1, 13)); // NOI18N
-        BuscarReservacion.setText("Buscar Reservación");
-        BuscarReservacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarReservacionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(BuscarReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
-
-        Exit.setBackground(new java.awt.Color(255, 0, 51));
-        Exit.setForeground(new java.awt.Color(255, 255, 255));
         Exit.setText("X");
         Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExitActionPerformed(evt);
             }
         });
-        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 70, -1));
+        jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 60, -1));
 
-        Historial.setBackground(new java.awt.Color(255, 204, 204));
-        Historial.setFont(new java.awt.Font("Noteworthy", 1, 13)); // NOI18N
-        Historial.setText("Historial de Habitación");
-        Historial.addActionListener(new java.awt.event.ActionListener() {
+        Atras.setText("Atrás");
+        Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HistorialActionPerformed(evt);
+                AtrasActionPerformed(evt);
             }
         });
-        jPanel1.add(Historial, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
+        jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/principal.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 680, 400));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotels Business Website in Brown White Modern Elegance Style.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,32 +67,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BuscarReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarReservacionActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        BasicFunctions nuevoss = new BasicFunctions();
-        ABBReservaciones arbol = nuevoss.Reservas();
-        this.buscar = new BuscarReservacion(arbol,this);
-        this.buscar.setVisible(true);
-    }//GEN-LAST:event_BuscarReservacionActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
 
-    private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
+    private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        this.historial = new HistorialHabitacion(this);
-        this.historial.setVisible(true);
-    }//GEN-LAST:event_HistorialActionPerformed
+        this.menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_AtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,26 +101,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HistorialHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HistorialHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HistorialHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HistorialHabitacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new MenuPrincipal().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BuscarReservacion;
+    private javax.swing.JButton Atras;
     private javax.swing.JButton Exit;
-    private javax.swing.JButton Historial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

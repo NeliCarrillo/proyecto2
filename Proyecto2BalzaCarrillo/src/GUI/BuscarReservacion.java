@@ -20,6 +20,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
     /**
      * Creates new form BuscarReservacion
      * @param arbol
+     * @param muns
      */
     public BuscarReservacion(ABBReservaciones arbol, MenuPrincipal muns) {
         initComponents();
