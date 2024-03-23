@@ -10,11 +10,18 @@ package GUI;
  */
 public class BuscarCliente extends javax.swing.JFrame {
 
+    private MenuPrincipal menu;
     /**
      * Creates new form BuscarHuesped
+     * @param muns
      */
-    public BuscarCliente() {
+    public BuscarCliente(MenuPrincipal muns) {
         initComponents();
+        this.menu=muns;
+        setLocationRelativeTo(null);
+        setResizable(false);
+        this.Nombre.setText("");
+        this.Apellido.setText("");
     }
 
     /**
@@ -34,6 +41,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         Apellido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        Obtener = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,6 +50,11 @@ public class BuscarCliente extends javax.swing.JFrame {
 
         Atras.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         Atras.setText("Atrás");
+        Atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtrasActionPerformed(evt);
+            }
+        });
         jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
@@ -52,21 +65,21 @@ public class BuscarCliente extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Apellido:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombreActionPerformed(evt);
             }
         });
-        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 120, -1));
+        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, -1));
 
         Apellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ApellidoActionPerformed(evt);
             }
         });
-        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 120, -1));
+        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,7 +89,15 @@ public class BuscarCliente extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nombre:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+
+        Obtener.setText("Obtener Habitación");
+        Obtener.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ObtenerActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Obtener, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Hotels Business Website in Brown White Modern Elegance Style.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -102,6 +123,16 @@ public class BuscarCliente extends javax.swing.JFrame {
     private void ApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ApellidoActionPerformed
+
+    private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
+        // TODO add your handling code here:
+        this.menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_AtrasActionPerformed
+
+    private void ObtenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObtenerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ObtenerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,10 +163,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new BuscarCliente().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
         });
     }
 
@@ -143,6 +171,7 @@ public class BuscarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField Apellido;
     private javax.swing.JButton Atras;
     private javax.swing.JTextField Nombre;
+    private javax.swing.JButton Obtener;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

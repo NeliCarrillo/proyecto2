@@ -13,8 +13,9 @@ import Functions.BasicFunctions;
  */
 public class MenuPrincipal extends javax.swing.JFrame {
     
-    private BuscarReservacion buscar;
+    private BuscarReservacion buscarRes;
     private HistorialHabitacion historial;
+    private BuscarCliente buscarCli;
     private final BasicFunctions func;
 
     /**
@@ -40,6 +41,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         BuscarReservacion = new javax.swing.JButton();
         Exit = new javax.swing.JButton();
         Historial = new javax.swing.JButton();
+        BuscarCliente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,6 +78,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(Historial, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
 
+        BuscarCliente.setBackground(new java.awt.Color(255, 204, 204));
+        BuscarCliente.setFont(new java.awt.Font("Noteworthy", 1, 13)); // NOI18N
+        BuscarCliente.setText("Buscar Cliente");
+        BuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarClienteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/principal.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 680, 400));
 
@@ -96,8 +108,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void BuscarReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarReservacionActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.buscar = new BuscarReservacion(func.Reservas(),this);
-        this.buscar.setVisible(true);
+        this.buscarRes = new BuscarReservacion(func.Reservas(),this);
+        this.buscarRes.setVisible(true);
     }//GEN-LAST:event_BuscarReservacionActionPerformed
 
     private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
@@ -111,6 +123,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ExitActionPerformed
+
+    private void BuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarClienteActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.buscarCli= new BuscarCliente(this);
+        this.buscarCli.setVisible(true);
+    }//GEN-LAST:event_BuscarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,6 +165,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BuscarCliente;
     private javax.swing.JButton BuscarReservacion;
     private javax.swing.JButton Exit;
     private javax.swing.JButton Historial;
