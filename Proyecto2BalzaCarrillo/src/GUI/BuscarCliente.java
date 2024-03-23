@@ -150,7 +150,7 @@ public class BuscarCliente extends javax.swing.JFrame {
             if (room != -1){
                 JOptionPane.showMessageDialog(null, "El cliente "+nombre+" "+apellido+" se encuentra hospedado en la habitacion N°"+room+".");
             } else{
-                JOptionPane.showMessageDialog(null, "El cliente "+nombre+" "+apellido+" no se encuentra hospedado en el Hotel Oasis actualmente.");
+                JOptionPane.showMessageDialog(null, "El cliente "+nombre+" "+apellido+" no se encuentra hospedado en el Hotel Cas Cabildo actualmente.");
             }
             name.setText("");
             lastName.setText("");
