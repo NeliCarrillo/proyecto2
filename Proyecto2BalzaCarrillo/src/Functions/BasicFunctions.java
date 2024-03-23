@@ -3,7 +3,9 @@ import ABB.ABBHistorial;
 import ABB.ABBReservaciones;
 import ABB.NodoHistorial;
 import Hashtable.Client;
+import Hashtable.Hashtable;
 import Hashtable.Lista;
+import Hashtable.Nodo;
 import Hotel.Cliente;
 import com.csvreader.CsvReader;
 import java.io.FileNotFoundException;
@@ -130,5 +132,62 @@ public class BasicFunctions {
         }
         
         return historial;
+    }
+    
+    /**
+     * Metodo que Guarda el estado de los huespedes en el CSV
+     * @return lista de los clientes hospedados actualmente en el hotel
+     */
+    public Lista<Client> Estado(){
+        Lista<Client> guests = new Lista<>(); // Lista donde guardaremos los datos del archivo
+        
+        try{
+            
+            CsvReader leerUsuarios = new CsvReader("test//Estado.csv");
+            leerUsuarios.readHeaders();
+            
+            // Mientras haya lineas obtenemos los datos del archivo
+            while(leerUsuarios.readRecord()) {
+                if (!leerUsuarios.get(0).equals("")){
+                    String hab = leerUsuarios.get(0);
+                    int num_hab = Integer.parseInt(hab);
+                    
+                    String f_name = leerUsuarios.get(1);
+                    String l_name = leerUsuarios.get(2);
+                    String email = leerUsuarios.get(3);
+                    String gender = leerUsuarios.get(4);
+                    String celular = leerUsuarios.get(5);
+                    String llegada = leerUsuarios.get(6);
+                    
+                    Client cliente = new Client(-1, f_name, l_name, email, gender, null, celular, llegada, null, num_hab);
+                    guests.insertFinal(cliente);
+                }
+            }
+            
+            } catch(FileNotFoundException e) {
+                e.printStackTrace();
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+        return guests;
+    }
+    
+    /**
+     * Metodo que permite crear un Hashtable a partir de la lista de huespedes del hotel
+     * @param guests, lista de huespedes actuales del hotel
+     * @return hashtable que almacena los huespedes del hotel
+     */
+    public Hashtable createHashtable(Lista<Client> guests){
+        /**
+        * Metodo que crea el Hashtable
+        */
+        Hashtable hash = new Hashtable(600);
+        Nodo pointer = guests.getHead();
+        while(pointer != null){
+            Client current = (Client) pointer.getElement();
+            hash.insertInHashtable(current);
+            pointer = pointer.getNext();
+        }
+        return hash;
     }
 }

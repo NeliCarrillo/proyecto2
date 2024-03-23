@@ -126,7 +126,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void BuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarClienteActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.buscarCli= new BuscarCliente(this);
+        this.buscarCli= new BuscarCliente(func.createHashtable(func.Estado()),this);
         this.buscarCli.setVisible(true);
     }//GEN-LAST:event_BuscarClienteActionPerformed
 
