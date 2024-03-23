@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import Hashtable.Hashtable;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author nelsoncarrillo
@@ -11,17 +14,20 @@ package GUI;
 public class BuscarCliente extends javax.swing.JFrame {
 
     private MenuPrincipal menu;
+    private Hashtable hash;
     /**
      * Creates new form BuscarHuesped
+     * @param has
      * @param muns
      */
-    public BuscarCliente(MenuPrincipal muns) {
+    public BuscarCliente(Hashtable has,MenuPrincipal muns) {
         initComponents();
         this.menu=muns;
+        this.hash=has;
         setLocationRelativeTo(null);
         setResizable(false);
-        this.Nombre.setText("");
-        this.Apellido.setText("");
+        this.name.setText("");
+        this.lastName.setText("");
     }
 
     /**
@@ -37,8 +43,8 @@ public class BuscarCliente extends javax.swing.JFrame {
         Atras = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Nombre = new javax.swing.JTextField();
-        Apellido = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
+        lastName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Obtener = new javax.swing.JButton();
@@ -67,19 +73,19 @@ public class BuscarCliente extends javax.swing.JFrame {
         jLabel3.setText("Apellido:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
-        Nombre.addActionListener(new java.awt.event.ActionListener() {
+        name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreActionPerformed(evt);
+                nameActionPerformed(evt);
             }
         });
-        jPanel1.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, -1));
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, -1));
 
-        Apellido.addActionListener(new java.awt.event.ActionListener() {
+        lastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ApellidoActionPerformed(evt);
+                lastNameActionPerformed(evt);
             }
         });
-        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 120, -1));
+        jPanel1.add(lastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,13 +122,13 @@ public class BuscarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreActionPerformed
+    }//GEN-LAST:event_nameActionPerformed
 
-    private void ApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoActionPerformed
+    private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ApellidoActionPerformed
+    }//GEN-LAST:event_lastNameActionPerformed
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
         // TODO add your handling code here:
@@ -132,6 +138,25 @@ public class BuscarCliente extends javax.swing.JFrame {
 
     private void ObtenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ObtenerActionPerformed
         // TODO add your handling code here:
+        try{
+            //Se simplifica el input para ayudar al usuario es decir por un espacio 
+            //lo ayudamos buscando que encuentre lo que este buscando
+            String fName = name.getText().replace(" ", "");
+            String nombre = fName.substring(0, 1).toUpperCase() + fName.substring(1);
+            String lName = lastName.getText().replace(" ", "");
+            String apellido = lName.substring(0, 1).toUpperCase() + lName.substring(1); 
+
+            int room = hash.searchClient(nombre, apellido);
+            if (room != -1){
+                JOptionPane.showMessageDialog(null, "El cliente "+nombre+" "+apellido+" se encuentra hospedado en la habitacion N°"+room+".");
+            } else{
+                JOptionPane.showMessageDialog(null, "El cliente "+nombre+" "+apellido+" no se encuentra hospedado en el Hotel Oasis actualmente.");
+            }
+            name.setText("");
+            lastName.setText("");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR - Recuerde ingresar un nombre y un apellido");
+        }
     }//GEN-LAST:event_ObtenerActionPerformed
 
     /**
@@ -168,9 +193,7 @@ public class BuscarCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Apellido;
     private javax.swing.JButton Atras;
-    private javax.swing.JTextField Nombre;
     private javax.swing.JButton Obtener;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -178,5 +201,7 @@ public class BuscarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField lastName;
+    private javax.swing.JTextField name;
     // End of variables declaration//GEN-END:variables
 }

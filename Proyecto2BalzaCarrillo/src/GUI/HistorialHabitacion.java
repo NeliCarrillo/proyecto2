@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class HistorialHabitacion extends javax.swing.JFrame {
     
-    private MenuPrincipal menu;
-    private ABBHistorial historial;
+    private final MenuPrincipal menu;
+    private final ABBHistorial historial;
     /**
      * Creates new form HistorialHabitacion
      * @param arbol
@@ -25,6 +25,7 @@ public class HistorialHabitacion extends javax.swing.JFrame {
     public HistorialHabitacion(ABBHistorial arbol,MenuPrincipal muns) {
         initComponents();
         setLocationRelativeTo(null);
+        hab.setText("");
         datos.setEditable(false);
         datos.setText("");
         setResizable(false);

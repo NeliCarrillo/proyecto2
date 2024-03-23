@@ -4,7 +4,6 @@
  */
 package GUI;
 
-import ABB.ABBReservaciones;
 import Functions.BasicFunctions;
 
 /**
@@ -23,8 +22,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        setLocationRelativeTo(null);
+        setResizable(false);
         this.func = new BasicFunctions();
     }
 
