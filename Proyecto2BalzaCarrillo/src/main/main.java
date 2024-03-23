@@ -10,9 +10,15 @@ import Hashtable.Lista;
 
 
 /**
- *
- * @author nelsoncarrillo
- */
+*                    Proyecto 2 Hotel Cas Cabildo.
+*                  Universidad Metropolitana
+*                     Estructura de Datos
+*                  Prof. Fernando Torre secc. 3
+*                Hecho por: Nelson Carrillo
+*                           Tito Balza
+* 
+* @author nelsoncarrillo & tito_
+*/
 public class main {
     
     public static Hashtable hash;
