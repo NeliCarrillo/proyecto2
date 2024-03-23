@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import Functions.BasicFunctions;
+import static main.main.*;
 
 /**
  *
@@ -13,9 +13,8 @@ import Functions.BasicFunctions;
 public class MenuPrincipal extends javax.swing.JFrame {
     
     private BuscarReservacion buscarRes;
-    private HistorialHabitacion historial;
+    private HistorialHabitacion historialGUI;
     private BuscarCliente buscarCli;
-    private final BasicFunctions func;
 
     /**
      * Creates new form MenuPrincipal
@@ -24,7 +23,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-        this.func = new BasicFunctions();
     }
 
     /**
@@ -107,15 +105,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void BuscarReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarReservacionActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.buscarRes = new BuscarReservacion(func.Reservas(),this);
+        this.buscarRes = new BuscarReservacion(reservas,this);
         this.buscarRes.setVisible(true);
     }//GEN-LAST:event_BuscarReservacionActionPerformed
 
     private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.historial = new HistorialHabitacion(func.crearHistorial(func.Historial()),this);
-        this.historial.setVisible(true);
+        this.historialGUI = new HistorialHabitacion(historial,this);
+        this.historialGUI.setVisible(true);
     }//GEN-LAST:event_HistorialActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
@@ -126,7 +124,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void BuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarClienteActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.buscarCli= new BuscarCliente(func.createHashtable(func.Estado()),this);
+        this.buscarCli= new BuscarCliente(hash,this);
         this.buscarCli.setVisible(true);
     }//GEN-LAST:event_BuscarClienteActionPerformed
 
