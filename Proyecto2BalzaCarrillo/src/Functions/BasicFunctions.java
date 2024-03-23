@@ -13,7 +13,9 @@ import java.io.IOException;
 
 /**
  * Clase de funciones para iniciar el programa.
- * Ejemplo: crear &aacute;rboles, hash,etc.
+ * Ejemplo: crear &aacute;rboles binarios de b&uacute;squeda, hashtable,etc.
+ * Considerada por m&iacute; como la columna vertebral de este proyecto.
+ * Permite la conversi&oacute;n archivo CSV -> programa.
  * 
  * @version 7 marzo 2024
  * @author nelsoncarrillo
@@ -22,7 +24,7 @@ public class BasicFunctions {
     
     /**
     * M&eacute;todo que Guarda las Reservas del archivo CSV.
-    * Esto mediante el uso de la libreria javacsv
+    * Esto mediante el uso de la libreria javacsv.
     * 
     * @author nelsoncarrillo
     * @version 7 marzo 2024
@@ -66,8 +68,9 @@ public class BasicFunctions {
     }
     
     /**  
-     * Metodo que Guarda el Historico de las personas hospedadas.
-     * Hospedadas pues en el hotel del archivo CSV.
+     * M&eacute;todo que Guarda el Hist&oacute;rico de las personas hospedadas.
+     * Hospedadas pues en el hotel a trav&eacute;s del archivo CSV.
+     * 
      * @return lista del historial de habitaciones del hotel
      */
     public Lista<Client> Historial(){
@@ -106,7 +109,9 @@ public class BasicFunctions {
     }
     
     /**
-     * Metodo que crea un ABB de tipo historial con 300 nodos y agrega los datos existentes del historial de habitaciones
+     * M&eacute;todo que crea un ABB de tipo historial con 300 nodos.
+     * Luego agrega los datos existentes del historial de habitaciones.
+     * 
      * @param history, lista del historial de habitaciones
      * @return ABB que contiene el historial de habitaciones 
      */
@@ -135,8 +140,10 @@ public class BasicFunctions {
     }
     
     /**
-     * Metodo que Guarda el estado de los huespedes en el CSV
-     * @return lista de los clientes hospedados actualmente en el hotel
+     * M&eacute;todo que Guarda el estado de los hu&eacute;spedes en el CSV.
+     * Esto para luego crear el hashtable ver el siguiente m&eacute;todo.
+     * 
+     * @return lista de los clientes hospedados actualmente en el hotel.
      */
     public Lista<Client> Estado(){
         Lista<Client> guests = new Lista<>(); // Lista donde guardaremos los datos del archivo
@@ -173,9 +180,11 @@ public class BasicFunctions {
     }
     
     /**
-     * Metodo que permite crear un Hashtable a partir de la lista de huespedes del hotel
-     * @param guests, lista de huespedes actuales del hotel
-     * @return hashtable que almacena los huespedes del hotel
+     * M&eacute;todo que permite crear un Hashtable a partir de la lista de hu&eacute;spedes del hotel.
+     * Ajuro se tiene que palicar el anterior para correr este algoritmo.
+     * 
+     * @param guests, lista de huespedes actuales del hotel.
+     * @return hashtable que almacena los huespedes del hotel.
      */
     public Hashtable createHashtable(Lista<Client> guests){
         /**
