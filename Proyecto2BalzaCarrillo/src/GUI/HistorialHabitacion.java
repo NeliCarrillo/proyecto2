@@ -8,6 +8,7 @@ import ABB.ABBHistorial;
 import Hashtable.Client;
 import Hashtable.Lista;
 import javax.swing.JOptionPane;
+import static main.main.historial;
 
 /**
  *
@@ -16,20 +17,19 @@ import javax.swing.JOptionPane;
 public class HistorialHabitacion extends javax.swing.JFrame {
     
     private final MenuPrincipal menu;
-    private final ABBHistorial historial;
+    
     /**
      * Creates new form HistorialHabitacion
      * @param arbol
      * @param muns
      */
-    public HistorialHabitacion(ABBHistorial arbol,MenuPrincipal muns) {
+    public HistorialHabitacion(MenuPrincipal muns) {
         initComponents();
         setLocationRelativeTo(null);
         hab.setText("");
         datos.setEditable(false);
         datos.setText("");
         setResizable(false);
-        this.historial=arbol;
         this.menu=muns;
     }
 

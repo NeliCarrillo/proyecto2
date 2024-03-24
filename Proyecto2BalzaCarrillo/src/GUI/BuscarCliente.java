@@ -6,6 +6,7 @@ package GUI;
 
 import Hashtable.Hashtable;
 import javax.swing.JOptionPane;
+import static main.main.hash;
 
 /**
  *
@@ -14,16 +15,14 @@ import javax.swing.JOptionPane;
 public class BuscarCliente extends javax.swing.JFrame {
 
     private MenuPrincipal menu;
-    private Hashtable hash;
+    
     /**
      * Creates new form BuscarHuesped
-     * @param has
      * @param muns
      */
-    public BuscarCliente(Hashtable has,MenuPrincipal muns) {
+    public BuscarCliente(MenuPrincipal muns) {
         initComponents();
         this.menu=muns;
-        this.hash=has;
         setLocationRelativeTo(null);
         setResizable(false);
         this.name.setText("");

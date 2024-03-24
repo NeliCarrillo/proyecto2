@@ -105,14 +105,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void BuscarReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarReservacionActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.buscarRes = new BuscarReservacion(reservas,this);
+        this.buscarRes = new BuscarReservacion(this);
         this.buscarRes.setVisible(true);
     }//GEN-LAST:event_BuscarReservacionActionPerformed
 
     private void HistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HistorialActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.historialGUI = new HistorialHabitacion(historial,this);
+        this.historialGUI = new HistorialHabitacion(this);
         this.historialGUI.setVisible(true);
     }//GEN-LAST:event_HistorialActionPerformed
 
@@ -124,7 +124,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void BuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarClienteActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        this.buscarCli= new BuscarCliente(hash,this);
+        this.buscarCli= new BuscarCliente(this);
         this.buscarCli.setVisible(true);
     }//GEN-LAST:event_BuscarClienteActionPerformed
 

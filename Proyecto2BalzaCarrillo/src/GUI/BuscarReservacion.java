@@ -7,6 +7,7 @@ package GUI;
 import ABB.ABBReservaciones;
 import Hotel.Cliente;
 import javax.swing.JOptionPane;
+import static main.main.reservas;
 
 /**
  *
@@ -15,14 +16,12 @@ import javax.swing.JOptionPane;
 public class BuscarReservacion extends javax.swing.JFrame {
     
     private MenuPrincipal menu;
-    private final ABBReservaciones arbol;
     
     /**
      * Creates new form BuscarReservacion
-     * @param arbol
      * @param muns
      */
-    public BuscarReservacion(ABBReservaciones arbol, MenuPrincipal muns) {
+    public BuscarReservacion(MenuPrincipal muns) {
         initComponents();
         Cedula.setText("");
         Reservacion.setText("");
@@ -30,7 +29,6 @@ public class BuscarReservacion extends javax.swing.JFrame {
         this.menu=muns;
         setLocationRelativeTo(null);
         setResizable(false);
-        this.arbol=arbol;
     }
 
     /**
@@ -124,7 +122,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
         try{
             String ci1 = Cedula.getText().replace(".", "");
             int ci = Integer.parseInt(ci1);
-            Cliente client =this.arbol.buscarReservacion(this.arbol.getRoot(), ci);
+            Cliente client = reservas.buscarReservacion(reservas.getRoot(), ci);
             if(client==null){
                 JOptionPane.showMessageDialog(null, "No se consiguieron reservaciones con la CI\n"+Cedula.getText(), "No se encontró", JOptionPane.INFORMATION_MESSAGE);
             }else{
