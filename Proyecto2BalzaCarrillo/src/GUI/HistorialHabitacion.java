@@ -9,7 +9,8 @@ import Hashtable.Lista;
 import javax.swing.JOptionPane;
 import static main.main.historial;
 
-/**
+/**Interfaz que permite al usuario ver lista de los clientes que alguna vez se hospedaron en una habitaci&oacute;n.
+ * Esto conociendo el n&uacute;mero de habitaci&oacute;n.
  *
  * @author nelsoncarrillo
  */

@@ -7,7 +7,8 @@ package GUI;
 import javax.swing.JOptionPane;
 import static main.main.hash;
 
-/**
+/**Interfaz que permite al usuario conocer los clientes que actualmente se encuentran hospedados en el hotel.
+ * Esto introduciendo su nombre y apellido.
  *
  * @author nelsoncarrillo
  */

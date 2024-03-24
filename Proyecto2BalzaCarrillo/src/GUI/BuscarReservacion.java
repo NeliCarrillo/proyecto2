@@ -8,7 +8,8 @@ import Hotel.Cliente;
 import javax.swing.JOptionPane;
 import static main.main.reservas;
 
-/**
+/** Interfaz que permite al usuario conocer los datos de la reservaci&oacute;n.
+ * Esto dado el n&uacute;mero de c&eacute;dula del cliente.
  *
  * @author nelsoncarrillo
  */
