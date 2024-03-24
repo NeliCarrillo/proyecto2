@@ -39,6 +39,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Exit = new javax.swing.JButton();
         Historial = new javax.swing.JButton();
         BuscarCliente = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,14 +51,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BuscarReservacion.setBackground(new java.awt.Color(255, 204, 204));
-        BuscarReservacion.setFont(new java.awt.Font("Noteworthy", 1, 13)); // NOI18N
+        BuscarReservacion.setFont(new java.awt.Font("Times New Roman", 2, 13)); // NOI18N
         BuscarReservacion.setText("Buscar Reservación");
         BuscarReservacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarReservacionActionPerformed(evt);
             }
         });
-        jPanel1.add(BuscarReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        jPanel1.add(BuscarReservacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
         Exit.setBackground(new java.awt.Color(255, 0, 51));
         Exit.setForeground(new java.awt.Color(255, 255, 255));
@@ -66,24 +71,64 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1.add(Exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 70, -1));
 
         Historial.setBackground(new java.awt.Color(255, 204, 204));
-        Historial.setFont(new java.awt.Font("Noteworthy", 1, 13)); // NOI18N
+        Historial.setFont(new java.awt.Font("Times New Roman", 2, 13)); // NOI18N
         Historial.setText("Historial de Habitación");
         Historial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HistorialActionPerformed(evt);
             }
         });
-        jPanel1.add(Historial, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
+        jPanel1.add(Historial, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
 
         BuscarCliente.setBackground(new java.awt.Color(255, 204, 204));
-        BuscarCliente.setFont(new java.awt.Font("Noteworthy", 1, 13)); // NOI18N
+        BuscarCliente.setFont(new java.awt.Font("Times New Roman", 2, 13)); // NOI18N
         BuscarCliente.setText("Buscar Cliente");
         BuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(BuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
+        jPanel1.add(BuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setText("   0800-CARACAS                      cascabildohotelreservaciones@gmail.com                      @cascbhotel          ");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/jKcWcPdITRJjVMPuziZGCJZmKkTWzgruMKyWeSKaLXlcqDakUrhuiIlKZgLCRrfp-2.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 680, 50));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Captura de pantalla 2024-03-24 a la(s) 6.41.48 p.m.-2.png"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Comodidad en la ciudad capital.");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/principal.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 680, 400));
@@ -167,6 +212,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton Exit;
     private javax.swing.JButton Historial;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
