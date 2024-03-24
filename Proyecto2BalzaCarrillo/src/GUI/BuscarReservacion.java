@@ -4,7 +4,6 @@
  */
 package GUI;
 
-import ABB.ABBReservaciones;
 import Hotel.Cliente;
 import javax.swing.JOptionPane;
 import static main.main.reservas;
@@ -15,7 +14,7 @@ import static main.main.reservas;
  */
 public class BuscarReservacion extends javax.swing.JFrame {
     
-    private MenuPrincipal menu;
+    private final MenuPrincipal menu;
     
     /**
      * Creates new form BuscarReservacion

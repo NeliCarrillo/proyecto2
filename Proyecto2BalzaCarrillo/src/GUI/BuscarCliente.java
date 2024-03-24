@@ -4,7 +4,6 @@
  */
 package GUI;
 
-import Hashtable.Hashtable;
 import javax.swing.JOptionPane;
 import static main.main.hash;
 
@@ -14,7 +13,7 @@ import static main.main.hash;
  */
 public class BuscarCliente extends javax.swing.JFrame {
 
-    private MenuPrincipal menu;
+    private final MenuPrincipal menu;
     
     /**
      * Creates new form BuscarHuesped

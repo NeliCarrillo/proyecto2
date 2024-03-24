@@ -4,7 +4,6 @@
  */
 package GUI;
 
-import ABB.ABBHistorial;
 import Hashtable.Client;
 import Hashtable.Lista;
 import javax.swing.JOptionPane;
@@ -20,7 +19,6 @@ public class HistorialHabitacion extends javax.swing.JFrame {
     
     /**
      * Creates new form HistorialHabitacion
-     * @param arbol
      * @param muns
      */
     public HistorialHabitacion(MenuPrincipal muns) {
