@@ -15,6 +15,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private BuscarReservacion buscarRes;
     private HistorialHabitacion historialGUI;
     private BuscarCliente buscarCli;
+    private CheckIn checkin;
+    private CheckOut checkout;
 
     /**
      * Creates new form MenuPrincipal
@@ -144,6 +146,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CheckOut.setFont(new java.awt.Font("Times New Roman", 2, 13)); // NOI18N
         CheckOut.setText("Check-Out");
         CheckOut.setBorderPainted(false);
+        CheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckOutActionPerformed(evt);
+            }
+        });
         jPanel3.add(CheckOut);
 
         CheckIn.setBackground(new java.awt.Color(255, 204, 204));
@@ -214,7 +221,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckInActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        this.checkin=new CheckIn(this);
+        this.checkin.setVisible(true);
     }//GEN-LAST:event_CheckInActionPerformed
+
+    private void CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        this.checkout=new CheckOut(this);
+        this.checkout.setVisible(true);
+    }//GEN-LAST:event_CheckOutActionPerformed
 
     /**
      * @param args the command line arguments
