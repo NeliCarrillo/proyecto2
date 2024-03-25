@@ -70,6 +70,11 @@ public class CheckIn extends javax.swing.JFrame {
 
         aceptar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         aceptar.setText("Aceptar");
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarActionPerformed(evt);
+            }
+        });
         jPanel1.add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
         title.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -127,6 +132,31 @@ public class CheckIn extends javax.swing.JFrame {
         this.menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_AtrasActionPerformed
+
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+  
+        try{
+            String cedulaStr = cedula.getText().trim();
+            cedulaStr = cedulaStr.replace(".", "");
+            int ci = Integer.parseInt(cedulaStr);
+            cliente = reservas.reservationDetails(reservas.getRoot(), ci);
+            if (cliente != null){
+                hab = use.asignarHab(cliente);
+                title.setText("Recibo de "+cliente.getName()+" "+cliente.getLastName());
+                String info = "Cedula: "+ci+"\nNumero de habitacion asignado: "+hab+"\nTipo de habitacion: "+cliente.getTipoHab();
+                datos.setText(info);
+                cedula.setText("");
+                Habitacion prueba = (Habitacion) rooms.getDato(hab-1).getElement();
+                prueba.setFree(true);
+            } else{
+                JOptionPane.showMessageDialog(null, "No existe ninguna reservacion con el N° de cedula "+ci);
+                cedula.setText("");
+            }
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No existe ningun check-in activo, ingrese una cedula para iniciar"+e);
+            cedula.setText("");
+        }
+    }//GEN-LAST:event_aceptarActionPerformed
 
     /**
      * @param args the command line arguments
