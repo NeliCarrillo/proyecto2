@@ -56,7 +56,8 @@ public class HistorialHabitacion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Atras.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Atras.setBackground(new java.awt.Color(255, 204, 204));
+        Atras.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         Atras.setText("Atrás");
         Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,11 +66,12 @@ public class HistorialHabitacion extends javax.swing.JFrame {
         });
         jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
-        title.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        title.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
         title.setText("Historial de Habitación No.");
         jPanel1.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
+        hab.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         hab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 habActionPerformed(evt);
@@ -77,12 +79,13 @@ public class HistorialHabitacion extends javax.swing.JFrame {
         });
         jPanel1.add(hab, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 80, -1));
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Hab.");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 40, -1));
 
-        Buscar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Buscar.setBackground(new java.awt.Color(255, 204, 204));
+        Buscar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,13 +94,13 @@ public class HistorialHabitacion extends javax.swing.JFrame {
         });
         jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 80, -1));
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ingrese Número de Habitación para obtener listado de clientes hospedados previamente:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         datos.setColumns(20);
-        datos.setFont(new java.awt.Font("Noto Nastaliq Urdu", 1, 13)); // NOI18N
+        datos.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         datos.setRows(5);
         jScrollPane1.setViewportView(datos);
 

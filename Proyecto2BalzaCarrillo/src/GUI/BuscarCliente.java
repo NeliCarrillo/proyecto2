@@ -53,7 +53,8 @@ public class BuscarCliente extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Atras.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Atras.setBackground(new java.awt.Color(255, 204, 204));
+        Atras.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         Atras.setText("Atrás");
         Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,16 +63,17 @@ public class BuscarCliente extends javax.swing.JFrame {
         });
         jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese el nombre y apellido de un cliente registrado");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Apellido:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
+        name.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
@@ -79,6 +81,7 @@ public class BuscarCliente extends javax.swing.JFrame {
         });
         jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 120, -1));
 
+        lastName.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         lastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameActionPerformed(evt);
@@ -86,16 +89,18 @@ public class BuscarCliente extends javax.swing.JFrame {
         });
         jPanel1.add(lastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 120, -1));
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("para obtener su numero de habitación:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nombre:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
+        Obtener.setBackground(new java.awt.Color(255, 204, 204));
+        Obtener.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         Obtener.setText("Obtener Habitación");
         Obtener.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

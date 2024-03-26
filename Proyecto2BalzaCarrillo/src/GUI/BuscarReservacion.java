@@ -54,6 +54,7 @@ public class BuscarReservacion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cedula.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cedulaActionPerformed(evt);
@@ -61,24 +62,25 @@ public class BuscarReservacion extends javax.swing.JFrame {
         });
         jPanel1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 200, -1));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese Número de Cédula del cliente para obtener los datos de su reservación:");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Datos de Reservación:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         datos.setColumns(20);
-        datos.setFont(new java.awt.Font("Noto Nastaliq Urdu", 1, 13)); // NOI18N
+        datos.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         datos.setRows(5);
         jScrollPane1.setViewportView(datos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 550, 140));
 
-        Buscar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Buscar.setBackground(new java.awt.Color(255, 204, 204));
+        Buscar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +89,8 @@ public class BuscarReservacion extends javax.swing.JFrame {
         });
         jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 100, -1));
 
-        Atras.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Atras.setBackground(new java.awt.Color(255, 204, 204));
+        Atras.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         Atras.setText("Atrás");
         Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
