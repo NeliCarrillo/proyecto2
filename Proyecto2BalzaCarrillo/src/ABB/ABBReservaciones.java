@@ -1,5 +1,6 @@
 package ABB;
 
+import Hashtable.Client;
 import Hotel.Cliente;
 
 /**
@@ -82,6 +83,101 @@ public class ABBReservaciones {
         }
     }
     
+     public void deleteNodo(Cliente element, NodoReservacion raiz, NodoReservacion previousNode) {
+        if (isEmpty()) {
+            System.out.println("There are no elements to delete");
+        } else {
+            if (element == raiz.getElement()) {
+                if (raiz.isLeaf()) {
+                    // Cuando es una hoja
+                    if (previousNode == null) {
+                        setRoot(null);
+                    } else {
+                        if (element.getCedula() < previousNode.getElement().getCedula()) {
+                            previousNode.setLeftSon(null);
+                        } else {
+                            previousNode.setRightSon(null);
+                        }
+                    }
+                } else if (raiz.hasOnlyRightSon()) {
+                    // Cuando tiene hijo derecho
+                    if (previousNode == null) {
+                        setRoot(raiz.getRightSon());
+                    } else {
+                        if (element.getCedula() < previousNode.getElement().getCedula()) {
+                            previousNode.setLeftSon(raiz.getRightSon());
+                        } else {
+                            previousNode.setRightSon(raiz.getRightSon());
+                        }
+                    }
+                } else if (raiz.hasOnlyLeftSon()) {
+                    // Cuando tiene hijo izquierdo
+                    if (previousNode == null) {
+                        setRoot(raiz.getLeftSon());
+                    } else {
+                        if (element.getCedula() < previousNode.getElement().getCedula()) {
+                            previousNode.setLeftSon(raiz.getLeftSon());
+                        } else {
+                            previousNode.setRightSon(raiz.getLeftSon());
+                        }
+                    }
+                } else {
+                    // Tiene ambos hijos
+                    boolean haveRightSons = validateLeftSon(raiz.getLeftSon());
+                    if (haveRightSons) {
+                        NodoReservacion nodo = searchNodoToReplace(raiz.getLeftSon());
+                        nodo.setLeftSon(raiz.getLeftSon());
+                        nodo.setRightSon(raiz.getRightSon());
+                        if (element.getCedula() < previousNode.getElement().getCedula()) {
+                            previousNode.setLeftSon(nodo);
+                        } else {
+                            previousNode.setRightSon(nodo);
+                        }
+                    } else {
+                        NodoReservacion nodo = raiz.getLeftSon();
+                        nodo.setRightSon(raiz.getRightSon());
+                        if (element.getCedula() < previousNode.getElement().getCedula()) {
+                            previousNode.setLeftSon(nodo);
+                        } else {
+                            previousNode.setRightSon(nodo);
+                        }
+                    }
+                }
+            } else if(element.getCedula() < raiz.getElement().getCedula()) {
+                deleteNodo(element, raiz.getLeftSon(), raiz);
+            } else {
+                deleteNodo(element, raiz.getRightSon(), raiz);
+            }
+        }
+    }
+    public boolean checkClient(NodoReservacion root, Client element) {
+        boolean found = false;
+        if (!isEmpty()) {
+            if (root == null) {
+                System.out.println("No se consiguio el nodo");
+            } else {
+                if (element.getCedula() == root.getElement().getCedula()) {
+                    found = true;
+                } else if (element.getCedula() < root.getElement().getCedula()) {
+                    return checkClient(root.getLeftSon(), element);
+                } else {
+                    return checkClient(root.getRightSon(), element);
+                }
+            }
+        }
+        return found;
+    }
+    
+    public NodoReservacion searchNodoToReplace(NodoReservacion raiz){
+        while(raiz.getRightSon() != null) {
+            raiz = raiz.getRightSon();
+        }
+        return raiz;
+    }
+
+     public boolean validateLeftSon(NodoReservacion raiz) {
+        return raiz.getRightSon() != null;
+    }
     /**
      * Permite obtener un objeto de tipo Client a partir de su CI.
      * Se busca recursivamente si es mayor o menor la CI se va moviendo entre

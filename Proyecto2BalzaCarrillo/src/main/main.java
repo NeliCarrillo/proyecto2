@@ -24,6 +24,7 @@ public class main {
     public static Hashtable hash;
     public static ABBReservaciones reservas;
     public static ABBHistorial historial;
+    public static Lista rooms;
     
     /**
      * @param args the command line arguments
@@ -34,13 +35,16 @@ public class main {
         //Se instancia la columna vertebral
         //Para la lectura y desglose de datos de los CSV.
         BasicFunctions func = new BasicFunctions();
-
-        // Reservaciones
-        reservas = func.Reservas();
-
+        
         // Estado Actual
         Lista<Client> guests = func.Estado();
         hash = func.createHashtable(guests);
+        
+        // Reservaciones
+        reservas = func.Reservas();
+        rooms = func.Habitaciones();
+        rooms = func.setFreeRooms(rooms, guests);
+
 
         // Historial de Habitaciones
         Lista<Client> history = func.Historial();

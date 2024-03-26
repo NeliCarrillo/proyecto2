@@ -178,7 +178,16 @@ public class BasicFunctions {
             }
         return guests;
     }
-    
+     public Lista<Habitacion> setFreeRooms (Lista<Habitacion> rooms, Lista <Client> guests){
+        for (int i = 0; i < guests.getSize(); i++) {
+            Client current = (Client) guests.getDato(i).getElement();
+            int num_hab = current.getRoomNum();
+            Habitacion room = (Habitacion) rooms.getDato(num_hab-1).getElement();
+            room.setFree(false);
+        }
+        return rooms;
+        
+    }
     /**
      * M&eacute;todo que permite crear un Hashtable a partir de la lista de hu&eacute;spedes del hotel.
      * Ajuro se tiene que palicar el anterior para correr este algoritmo.
@@ -199,4 +208,35 @@ public class BasicFunctions {
         }
         return hash;
     }
+    public Lista<Habitacion> Habitaciones(){
+        try{
+            Lista<Habitacion> rooms = new Lista<>(); // Lista donde guardaremos los datos del archivo
+            
+            CsvReader leerHab = new CsvReader("test\\Habitaciones.csv");
+            leerHab.readHeaders();
+            
+            // Mientras haya lineas obtenemos los datos del archivo
+            while(leerHab.readRecord()) {
+                String hab = leerHab.get(0);
+                int num_hab = Integer.parseInt(hab);
+                
+                String tipo_hab = leerHab.get(1);
+                
+                String piso = leerHab.get(2);
+                int num_piso = Integer.parseInt(piso);
+                
+                Habitacion room = new Habitacion(num_hab, tipo_hab, num_piso);
+                rooms.insertFinal(room); // Añade la informacion a la lista
+
+            }
+            
+            return rooms;
+            
+        } catch(FileNotFoundException e) {
+            e.printStackTrace();
+        } catch(IOException e) {
+            e.printStackTrace();
+        } 
+        return null; 
+    } 
 }
