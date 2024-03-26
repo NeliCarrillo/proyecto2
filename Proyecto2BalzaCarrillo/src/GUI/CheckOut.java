@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import Functions.Funciones;
+import Hashtable.Cliente;
+
 /**
  *
  * @author nelsoncarrillo
@@ -25,6 +28,10 @@ public class CheckOut extends javax.swing.JFrame {
         this.surname.setText("");
     }
 
+    //Atributos de la clase
+    private Cliente cliente=null;
+
+    private Funciones use = new Funciones();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
