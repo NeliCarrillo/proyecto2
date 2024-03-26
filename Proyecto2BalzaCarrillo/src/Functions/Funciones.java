@@ -5,8 +5,7 @@
 package Functions;
 
 
-import Functions.Habitacion;
-import Hashtable.Client;
+import Hashtable.Cliente;
 import javax.swing.JOptionPane;
 import static main.main.hash;
 import static main.main.historial;
@@ -23,7 +22,7 @@ public class Funciones {
      * Metodo que permite que un cliente con reservacion ingrese al hotel 
      * @param cliente que desea ingresar
      */
-    public void checkIn(Client cliente) {
+    public void checkIn(Cliente cliente) {
         
         /**
         * Metodo que asigna la habitación a un cliente que se encuentra reservado
@@ -47,7 +46,7 @@ public class Funciones {
      * Metodo que permite que un huesped abandone el hotel y guarda sus datos en el historial
      * @param cliente que desea abandonar el hotal
      */
-    public void checkOut(Client cliente) {
+    public void checkOut(Cliente cliente) {
         
         /**
         * Metodo que hace referencia al momento de salida del huesped del hotel, y desocupa la habitación
@@ -67,7 +66,7 @@ public class Funciones {
      * @param cliente al cual se le asignara la habitacion
      * @return numero de habitacion asignado al cliente
      */
-    public int asignarHab(Client cliente) {
+    public int asignarHab(Cliente cliente) {
         
         /**
         * Metodo que busca las habitaciones disponibles del hotel para asignarla a los huespedes
@@ -90,7 +89,7 @@ public class Funciones {
      * Metodo que libera la habitacion de un cliente cuando el mismo abandona el hotel
      * @param cliente cuya habitacion se liberara
      */
-    public void freeRoom(Client cliente){
+    public void freeRoom(Cliente cliente){
         /**
         * Metodo que determina la disponibilidad de las habitaciones del hotel
         */

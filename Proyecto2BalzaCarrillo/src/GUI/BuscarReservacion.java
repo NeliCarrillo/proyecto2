@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import Hotel.Cliente;
+import Hashtable.Cliente;
 import javax.swing.JOptionPane;
 import static main.main.reservas;
 
@@ -23,9 +23,9 @@ public class BuscarReservacion extends javax.swing.JFrame {
      */
     public BuscarReservacion(MenuPrincipal muns) {
         initComponents();
-        Cedula.setText("");
-        Reservacion.setText("");
-        Reservacion.setEditable(false);
+        cedula.setText("");
+        datos.setText("");
+        datos.setEditable(false);
         this.menu=muns;
         setLocationRelativeTo(null);
         setResizable(false);
@@ -41,11 +41,11 @@ public class BuscarReservacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        Cedula = new javax.swing.JTextField();
+        cedula = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Reservacion = new javax.swing.JTextArea();
+        datos = new javax.swing.JTextArea();
         Buscar = new javax.swing.JButton();
         Atras = new javax.swing.JButton();
         background = new javax.swing.JLabel();
@@ -54,12 +54,12 @@ public class BuscarReservacion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Cedula.addActionListener(new java.awt.event.ActionListener() {
+        cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CedulaActionPerformed(evt);
+                cedulaActionPerformed(evt);
             }
         });
-        jPanel1.add(Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 200, -1));
+        jPanel1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 200, -1));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,10 +71,10 @@ public class BuscarReservacion extends javax.swing.JFrame {
         jLabel2.setText("Datos de Reservación:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        Reservacion.setColumns(20);
-        Reservacion.setFont(new java.awt.Font("Noto Nastaliq Urdu", 1, 13)); // NOI18N
-        Reservacion.setRows(5);
-        jScrollPane1.setViewportView(Reservacion);
+        datos.setColumns(20);
+        datos.setFont(new java.awt.Font("Noto Nastaliq Urdu", 1, 13)); // NOI18N
+        datos.setRows(5);
+        jScrollPane1.setViewportView(datos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 550, 140));
 
@@ -113,25 +113,29 @@ public class BuscarReservacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CedulaActionPerformed
+    private void cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CedulaActionPerformed
+    }//GEN-LAST:event_cedulaActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         // TODO add your handling code here:
         try{
-            String ci1 = Cedula.getText().replace(".", "");
-            int ci = Integer.parseInt(ci1);
-            Cliente client = reservas.buscarReservacion(reservas.getRoot(), ci);
-            if(client==null){
-                JOptionPane.showMessageDialog(null, "No se consiguieron reservaciones con la CI\n"+Cedula.getText(), "No se encontró", JOptionPane.INFORMATION_MESSAGE);
-            }else{
-                Reservacion.setText(client.getName()+"\n"+client.getLastName());
+            String cedulaStr = cedula.getText().trim();
+            cedulaStr = cedulaStr.replace(".", "");
+            int ci = Integer.parseInt(cedulaStr);
+            Cliente cliente = reservas.reservationDetails(reservas.getRoot(), ci);
+            if (cliente != null){
+                String info = "Nombre: "+cliente.getName()+"\nApellido: "+cliente.getLastName()+"\nCedula: "+ci+"\nEmail: "+cliente.getEmail()+"\nGenero: "+cliente.getGenero()+"\nNumero de contacto: "+cliente.getTlf()+"\nFecha de llegada: "+cliente.getLlegada()+"\nFecha de salida: "+cliente.getSalida()+"\nTipo de habitacion: "+cliente.getTipoHab();
+                datos.setText(info);
+                cedula.setText("");
+            } else{
+                JOptionPane.showMessageDialog(null, "No existe ninguna reservacion con el N° de cedula "+ci);
+                cedula.setText("");
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Ingrese un número de cédula válido.\nEj. XX.XXX.XXX ó XXXXXXXX", "Input Incorrecto", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "ERROR - Recuerde ingresar unicamente numeros");
+            cedula.setText("");
         }
-        Cedula.setText("");
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
@@ -176,9 +180,9 @@ public class BuscarReservacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
     private javax.swing.JButton Buscar;
-    private javax.swing.JTextField Cedula;
-    private javax.swing.JTextArea Reservacion;
     private javax.swing.JLabel background;
+    private javax.swing.JTextField cedula;
+    private javax.swing.JTextArea datos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

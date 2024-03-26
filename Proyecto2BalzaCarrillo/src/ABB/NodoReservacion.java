@@ -1,6 +1,6 @@
 package ABB;
 
-import Hotel.Cliente;
+import Hashtable.Cliente;
 
 /**
  * Clase que define los nodos que conforman el ABB.

@@ -4,7 +4,7 @@ import ABB.ABBHistorial;
 import ABB.ABBReservaciones;
 import Functions.BasicFunctions;
 import GUI.MenuPrincipal;
-import Hashtable.Client;
+import Hashtable.Cliente;
 import Hashtable.Hashtable;
 import Hashtable.Lista;
 
@@ -37,7 +37,7 @@ public class main {
         BasicFunctions func = new BasicFunctions();
         
         // Estado Actual
-        Lista<Client> guests = func.Estado();
+        Lista<Cliente> guests = func.Estado();
         hash = func.createHashtable(guests);
         
         // Reservaciones
@@ -47,7 +47,7 @@ public class main {
 
 
         // Historial de Habitaciones
-        Lista<Client> history = func.Historial();
+        Lista<Cliente> history = func.Historial();
         historial = func.crearHistorial(history);
         
         //Interfaz iniciada

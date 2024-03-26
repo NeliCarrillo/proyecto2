@@ -4,13 +4,25 @@
  */
 package GUI;
 
+import Functions.Funciones;
+import Functions.Habitacion;
+import Hashtable.Cliente;
+import javax.swing.JOptionPane;
+import static main.main.reservas;
+import static main.main.rooms;
+
 /**
  *
  * @author nelsoncarrillo
  */
 public class CheckIn extends javax.swing.JFrame {
+    
+    //Atributos de la clase 
     private final MenuPrincipal menu;
+    private Cliente cliente;
+    private int hab;
 
+    Funciones use = new Funciones();
     /**
      * Creates new form CheckIn
      * @param men
@@ -134,7 +146,7 @@ public class CheckIn extends javax.swing.JFrame {
     }//GEN-LAST:event_AtrasActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-  
+
         try{
             String cedulaStr = cedula.getText().trim();
             cedulaStr = cedulaStr.replace(".", "");

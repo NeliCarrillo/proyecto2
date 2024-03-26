@@ -90,7 +90,7 @@ public class Hashtable {
      * Metodo que permite insertar un cliente en el hashtable
      * @param value, cliente a ingresar
      */
-    public void insertInHashtable(Client value) {
+    public void insertInHashtable(Cliente value) {
 
         String name = value.getName();
         String lastName = value.getLastName();
@@ -127,7 +127,7 @@ public class Hashtable {
         int clave = hashCode(name, lastName);
         if (array[clave] != null) {
             for (int i = 0; i < array[clave].getSize(); i++) {
-                Client currentClient = (Client) array[clave].getDato(i).getElement();
+                Cliente currentClient = (Cliente) array[clave].getDato(i).getElement();
                 if (currentClient.getLastName().equals(lastName)) {
                     if (currentClient.getRoomNum() != -1) {
                         array[clave].deleteInIndex(i);
@@ -151,7 +151,7 @@ public class Hashtable {
         int clave = hashCode(name, lastName);
         if (array[clave] != null) {
             for (int i = 0; i < array[clave].getSize(); i++) {
-                Client currentClient = (Client) array[clave].getDato(i).getElement();
+                Cliente currentClient = (Cliente) array[clave].getDato(i).getElement();
                 if (currentClient.getLastName().equals(lastName)) {
                     if (currentClient.getRoomNum() != -1) {
                         return currentClient.getRoomNum();
@@ -171,7 +171,7 @@ public class Hashtable {
      * @param cliente a buscar
      * @return valor logico de si el cliente se encuentra guardado en el hashtable
      */
-    public boolean checkClient(Client cliente) {
+    public boolean checkClient(Cliente cliente) {
         boolean check = false;
         String name = cliente.getName();
         String lastName = cliente.getLastName();
@@ -190,13 +190,13 @@ public class Hashtable {
      * Metodo que permite obtener el cliente registrado a partir del nombre y apellido ingresado
      * @param name, nombre del cliente
      * @param lastName, apellido del cliente
-     * @return (Client) cliente registrado con el nombre y apellido ingresado, o null si el cliente no se encuentra registrado 
+     * @return (Cliente) cliente registrado con el nombre y apellido ingresado, o null si el cliente no se encuentra registrado 
      */
-    public Client obtenerCliente(String name, String lastName) {
+    public Cliente obtenerCliente(String name, String lastName) {
       int clave = hashCode(name, lastName);
       if (array[clave] != null) {
           for (int i = 0; i < array[clave].getSize(); i++) {
-              Client currentClient = (Client) array[clave].getDato(i).getElement();
+              Cliente currentClient = (Cliente) array[clave].getDato(i).getElement();
               if (currentClient.getLastName().equals(lastName)) {
                   if (currentClient.getRoomNum() != -1) {
                       return currentClient;

@@ -4,7 +4,7 @@
  */
 package GUI;
 
-import Hashtable.Client;
+import Hashtable.Cliente;
 import Hashtable.Lista;
 import javax.swing.JOptionPane;
 import static main.main.historial;
@@ -141,7 +141,7 @@ public class HistorialHabitacion extends javax.swing.JFrame {
                 title.setText("Historial de la Habitacion N°"+room);
                 String info = "";
                 for (int i = 0; i < history.getSize(); i++) {
-                    Client cliente = (Client) history.getDato(i).getElement();
+                    Cliente cliente = (Cliente) history.getDato(i).getElement();
                     info += "~ "+cliente.getName()+" "+cliente.getLastName()+" CI: "+cliente.getCedula()+"\n";
                 }
                 datos.setText(info);

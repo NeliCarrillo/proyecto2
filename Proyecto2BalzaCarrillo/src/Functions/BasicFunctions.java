@@ -2,11 +2,10 @@ package Functions;
 import ABB.ABBHistorial;
 import ABB.ABBReservaciones;
 import ABB.NodoHistorial;
-import Hashtable.Client;
 import Hashtable.Hashtable;
 import Hashtable.Lista;
 import Hashtable.Nodo;
-import Hotel.Cliente;
+import Hashtable.Cliente;
 import com.csvreader.CsvReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -73,8 +72,8 @@ public class BasicFunctions {
      * 
      * @return lista del historial de habitaciones del hotel
      */
-    public Lista<Client> Historial(){
-        Lista<Client> historial = new Lista<>(); // Lista donde guardaremos los datos del archivo
+    public Lista<Cliente> Historial(){
+        Lista<Cliente> historial = new Lista<>(); // Lista donde guardaremos los datos del archivo
         
         try{
             
@@ -95,7 +94,7 @@ public class BasicFunctions {
                 String hab = leerUsuarios.get(6);
                 int num_hab = Integer.parseInt(hab);
 
-                Client cliente = new Client(cedula, f_name, l_name, email, gender, null, null, llegada, null, num_hab);
+                Cliente cliente = new Cliente(cedula, f_name, l_name, email, gender, null, null, llegada, null, num_hab);
                 historial.insertFinal(cliente);
                 
             }
@@ -115,7 +114,7 @@ public class BasicFunctions {
      * @param history, lista del historial de habitaciones
      * @return ABB que contiene el historial de habitaciones 
      */
-    public ABBHistorial crearHistorial(Lista<Client> history){
+    public ABBHistorial crearHistorial(Lista<Cliente> history){
         /**
         * Metodo que crea la estructura de Árbol para el Historial de Habitaciones
         */
@@ -132,7 +131,7 @@ public class BasicFunctions {
             }
         }
         for (int i = 0; i < history.getSize(); i++) {
-            Client current = (Client) history.getDato(i).getElement();
+            Cliente current = (Cliente) history.getDato(i).getElement();
             historial.insertarCliente(historial.getRoot(), current);
         }
         
@@ -145,8 +144,8 @@ public class BasicFunctions {
      * 
      * @return lista de los clientes hospedados actualmente en el hotel.
      */
-    public Lista<Client> Estado(){
-        Lista<Client> guests = new Lista<>(); // Lista donde guardaremos los datos del archivo
+    public Lista<Cliente> Estado(){
+        Lista<Cliente> guests = new Lista<>(); // Lista donde guardaremos los datos del archivo
         
         try{
             
@@ -166,7 +165,7 @@ public class BasicFunctions {
                     String celular = leerUsuarios.get(5);
                     String llegada = leerUsuarios.get(6);
                     
-                    Client cliente = new Client(-1, f_name, l_name, email, gender, null, celular, llegada, null, num_hab);
+                    Cliente cliente = new Cliente(-1, f_name, l_name, email, gender, null, celular, llegada, null, num_hab);
                     guests.insertFinal(cliente);
                 }
             }
@@ -178,9 +177,9 @@ public class BasicFunctions {
             }
         return guests;
     }
-     public Lista<Habitacion> setFreeRooms (Lista<Habitacion> rooms, Lista <Client> guests){
+     public Lista<Habitacion> setFreeRooms (Lista<Habitacion> rooms, Lista <Cliente> guests){
         for (int i = 0; i < guests.getSize(); i++) {
-            Client current = (Client) guests.getDato(i).getElement();
+            Cliente current = (Cliente) guests.getDato(i).getElement();
             int num_hab = current.getRoomNum();
             Habitacion room = (Habitacion) rooms.getDato(num_hab-1).getElement();
             room.setFree(false);
@@ -195,14 +194,14 @@ public class BasicFunctions {
      * @param guests, lista de huespedes actuales del hotel.
      * @return hashtable que almacena los huespedes del hotel.
      */
-    public Hashtable createHashtable(Lista<Client> guests){
+    public Hashtable createHashtable(Lista<Cliente> guests){
         /**
         * Metodo que crea el Hashtable
         */
         Hashtable hash = new Hashtable(600);
         Nodo pointer = guests.getHead();
         while(pointer != null){
-            Client current = (Client) pointer.getElement();
+            Cliente current = (Cliente) pointer.getElement();
             hash.insertInHashtable(current);
             pointer = pointer.getNext();
         }
@@ -212,7 +211,7 @@ public class BasicFunctions {
         try{
             Lista<Habitacion> rooms = new Lista<>(); // Lista donde guardaremos los datos del archivo
             
-            CsvReader leerHab = new CsvReader("test\\Habitaciones.csv");
+            CsvReader leerHab = new CsvReader("test//Habitaciones.csv");
             leerHab.readHeaders();
             
             // Mientras haya lineas obtenemos los datos del archivo

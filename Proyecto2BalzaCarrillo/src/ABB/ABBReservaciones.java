@@ -1,7 +1,6 @@
 package ABB;
 
-import Hashtable.Client;
-import Hotel.Cliente;
+import Hashtable.Cliente;
 
 /**
  * Clase que define el ABB que guarda las reservaciones del hotel.
@@ -17,73 +16,107 @@ public class ABBReservaciones {
     private NodoReservacion root;
 
     /**
-     * Constructor de la clase.
-     * Crea una instancia del ABB.
+     * Constructor de la clase
      */
     public ABBReservaciones() {
         this.root = null;
     }
 
     /**
-     * Getter de la ra&iacute;z
-     * del ABB.
-     * 
-     * @return <code>NodoReservacion</code> ra&iacute;z del arbol
+     * Metodo que permite obtener la raiz del arbol
+     * @return raiz del arbol
      */
     public NodoReservacion getRoot() {
         return root;
     }
 
     /**
-     * Setter de la ra&iacute;z
-     * 
-     * @param root ra&iacute;z nueva del arbol
+     * Metodo que permite modificar la raiz del arbol
+     * @param root, raiz nueva del arbol
      */
     public void setRoot(NodoReservacion root) {
         this.root = root;
     }
-    
+
     /**
-     * Verifica si el &aacute;rbol est&aacute; vac&iacute;o
-     * 
-     * @return <code>true</code> si tiene ra&iacute;z.
-     *         <code>false</code> si apunta a nada.
+     * Metodo que permite almacenar un elemento dentro de un nodo y lo inserta al arbol
+     * @param raiz del arbol
+     * @param element, elemento a agregar
      */
-    public boolean isEmpty() {
-        return getRoot() == null;
-    }
-    
-    /**
-     * Metodo que permite almacenar un elemento dentro de un nodo y lo inserta.
-     * El ABB se ordena acorde al n&uacute;mero de c&eacute;dula.
-     * 
-     * @param raiz nodo ra&iacute;z del &aacute;rbol
-     * @param cliente cliente a agregar (que hizo reserva previamente).
-     */
-    public void insertNodo(NodoReservacion raiz, Cliente cliente){
-        NodoReservacion node = new NodoReservacion(cliente);
-        if (this.isEmpty()) {
-            this.setRoot(node);
-        }else{
-            if(cliente.getCedula() <= raiz.getElement().getCedula()) {
+    public void insertNodo(NodoReservacion raiz, Cliente element) {
+        NodoReservacion node = new NodoReservacion(element);
+        if (isEmpty()) {
+            setRoot(node);
+        } else {
+            if (element.getCedula() <= raiz.getElement().getCedula()) {
                 if (raiz.getLeftSon() == null) {
                     raiz.setLeftSon(node);
                     node.setFather(raiz);
                 } else {
-                    insertNodo(raiz.getLeftSon(), cliente);
+                    insertNodo(raiz.getLeftSon(), element);
                 }
             } else {
                 if (raiz.getRightSon() == null) {
                     raiz.setRightSon(node);
                     node.setFather(raiz);
                 } else {
-                    insertNodo(raiz.getRightSon(), cliente);
+                    insertNodo(raiz.getRightSon(), element);
                 }
             }
         }
     }
-    
-     public void deleteNodo(Cliente element, NodoReservacion raiz, NodoReservacion previousNode) {
+
+    /**
+     * Metodo que permite verificar si el arbol esta vacio
+     * @return valor logico de si esta vacio
+     */
+    public boolean isEmpty() {
+        return getRoot() == null;
+    }
+
+    /**
+     * Metodo que permite imprimir el arbol siguiendo la secuenca de PreOrden (raiz-izquierda-derecha)
+     * @param root, raiz del arbol
+     */
+    public void preOrden(NodoReservacion root) {
+        if (root != null) {
+            System.out.println("{ " + root.getElement().getName() + " }");
+            preOrden(root.getLeftSon());
+            preOrden(root.getRightSon());
+        }
+    }
+
+    /**
+     * Metodo que permite imprimir el arbol siguiendo la secuenca de InOrden (izquierda-raiz-derecha)
+     * @param root, raiz del arbol
+     */
+    public void inOrden(NodoReservacion root) {
+        if (root != null) {
+            preOrden(root.getLeftSon());
+            System.out.println("{ " + root.getElement().getName() + " }");
+            preOrden(root.getRightSon());
+        }
+    }
+
+    /**
+     * Metodo que permite imprimir el arbol siguiendo la secuenca de PostOrden (izquierda-derecha-raiz)
+     * @param root, raiz del arbol
+     */
+    public void postOrden(NodoReservacion root) {
+        if (root != null) {
+            preOrden(root.getLeftSon());
+            preOrden(root.getRightSon());
+            System.out.println("{ " + root.getElement().getName() + " }");
+        }
+    }
+
+    /**
+     * Metodo que permite eliminar un elemento del arbol
+     * @param element, elemento a eliminar
+     * @param raiz del arbol
+     * @param previousNode, nodo previo al actual
+     */
+    public void deleteNodo(Cliente element, NodoReservacion raiz, NodoReservacion previousNode) {
         if (isEmpty()) {
             System.out.println("There are no elements to delete");
         } else {
@@ -150,7 +183,35 @@ public class ABBReservaciones {
             }
         }
     }
-    public boolean checkClient(NodoReservacion root, Client element) {
+    
+    /**
+     * Metodo que permite verificar si un nodo del arbol tiene hijo izquierdo
+     * @param raiz del arbol
+     * @return valor logico de si el nodo tiene hijo izquierdo
+     */
+    public boolean validateLeftSon(NodoReservacion raiz) {
+        return raiz.getRightSon() != null;
+    }
+    
+    /**
+     * Metodo que permite buscar el nodo a remplazar 
+     * @param raiz actual del arbol
+     * @return nodo a reemplazar
+     */
+    public NodoReservacion searchNodoToReplace(NodoReservacion raiz){
+        while(raiz.getRightSon() != null) {
+            raiz = raiz.getRightSon();
+        }
+        return raiz;
+    }
+
+    /**
+     * Metodo que permite verificar si un elemento se encuentra almacenado en el arbol
+     * @param root, raiz del arbol
+     * @param element, elemento a buscar 
+     * @return valor logico de si el elemento se encuentra almacenado en algun nodo del arbol
+     */
+    public boolean checkClient(NodoReservacion root, Cliente element) {
         boolean found = false;
         if (!isEmpty()) {
             if (root == null) {
@@ -167,44 +228,26 @@ public class ABBReservaciones {
         }
         return found;
     }
-    
-    public NodoReservacion searchNodoToReplace(NodoReservacion raiz){
-        while(raiz.getRightSon() != null) {
-            raiz = raiz.getRightSon();
-        }
-        return raiz;
-    }
 
-     public boolean validateLeftSon(NodoReservacion raiz) {
-        return raiz.getRightSon() != null;
-    }
     /**
-     * Permite obtener un objeto de tipo Client a partir de su CI.
-     * Se busca recursivamente si es mayor o menor la CI se va moviendo entre
-     * los nodos constitutivos (subtrees) del ABB.
-     * 
+     * Metodo que permite obtener un objeto de tipo Client a partir de su numero de cedula
      * @param root, raiz del arbol
      * @param cedula del cliente a buscar
-     * @return <code>Cliente</code> que tiene el CI ingresado
-     *         <code>null</code> si el cliente no existe (No hizo reserva).
+     * @return el cliente que tiene el numero de cedula ingresado, o null si el cliente no existe 
      */
-    public Cliente buscarReservacion(NodoReservacion root, int cedula) {
-        if (!this.isEmpty()) {
+    public Cliente reservationDetails(NodoReservacion root, int cedula) {
+        if (!isEmpty()) {
             if (root == null) {
-                return null;
+                System.out.println("El cliente no posee reservacion");
             } else {
                 if (cedula == root.getElement().getCedula()) {
                     return root.getElement();
                 } else if (cedula < root.getElement().getCedula()) {
-                    return buscarReservacion(root.getLeftSon(), cedula);
+                    return reservationDetails(root.getLeftSon(), cedula);
                 } else {
-                    return buscarReservacion(root.getRightSon(), cedula);
+                    return reservationDetails(root.getRightSon(), cedula);
                 }
             }
-        }
-        return null;
+        }return null;
     }
-
-    
-    
 }
