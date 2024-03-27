@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 /**
  * Clase que define a una lista doblemente enlazada
  * @author tito_
- * @param <T>, Objeto de tipo Client 
+ * @param <T>, Objeto de tipo Cliente 
  */
 public class Lista<T> {
     
@@ -297,7 +297,7 @@ public class Lista<T> {
     public void printList(){
         for (int i = 0; i < getSize(); i++) {
             Nodo objeto = getDato(i);
-            Client currentClient = (Client) objeto.getElement();
+            Cliente currentClient = (Cliente) objeto.getElement();
             System.out.println(i + ": "+ currentClient.getName());
         }
     }

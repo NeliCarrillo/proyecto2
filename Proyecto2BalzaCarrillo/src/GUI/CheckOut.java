@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import Functions.Funciones;
+import Hashtable.Cliente;
+
 /**
  *
  * @author nelsoncarrillo
@@ -25,6 +28,10 @@ public class CheckOut extends javax.swing.JFrame {
         this.surname.setText("");
     }
 
+    //Atributos de la clase
+    private Cliente cliente=null;
+
+    private Funciones use = new Funciones();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +55,8 @@ public class CheckOut extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Atras.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Atras.setBackground(new java.awt.Color(255, 204, 204));
+        Atras.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         Atras.setText("Atrás");
         Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,24 +64,31 @@ public class CheckOut extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        surname.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         jPanel1.add(surname, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 160, -1));
+
+        name.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 160, -1));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese Nombre y Apellido del huésped para realizar check-out del hotel.");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Apellido:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nombre:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
-        accept.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        accept.setBackground(new java.awt.Color(255, 204, 204));
+        accept.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         accept.setText("Confirmar Check-Out");
         accept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

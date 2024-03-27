@@ -4,8 +4,6 @@
  */
 package GUI;
 
-import static main.main.*;
-
 /**
  *
  * @author nelsoncarrillo

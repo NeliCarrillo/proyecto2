@@ -8,7 +8,7 @@ package Hashtable;
  * Clase cliente que contiene los datos de cada cliente del hotel
  * @author tito_
  */
-public class Client {
+public class Cliente {
     
     //Atributos de la clase
     private int cedula;
@@ -35,7 +35,7 @@ public class Client {
      * @param salida, fecha de salida del cliente
      * @param roomNum, numero de habitacion del cliente
      */
-    public Client(int cedula, String name, String lastName, String email, String genero, String tipoHab, String tlf, String llegada, String salida, int roomNum) {
+    public Cliente(int cedula, String name, String lastName, String email, String genero, String tipoHab, String tlf, String llegada, String salida, int roomNum) {
         this.cedula = cedula;
         this.name = name;
         this.lastName = lastName;

@@ -1,6 +1,6 @@
 package ABB;
 
-import Hashtable.Client;
+import Hashtable.Cliente;
 import Hashtable.Lista;
 
 /**
@@ -65,7 +65,7 @@ public class ABBHistorial {
      * @param raiz actual del arbol
      * @param cliente a agregar
      */
-     public void insertarCliente(NodoHistorial raiz, Client cliente) {
+     public void insertarCliente(NodoHistorial raiz, Cliente cliente) {
 
          if (!isEmpty()) {
              if (raiz == null) {
@@ -98,7 +98,7 @@ public class ABBHistorial {
         if (root != null) {
             System.out.println(root.getRoom() + ": ");
             for (int i = 0; i < root.getElement().getSize(); i++) {
-                Client currentClient = (Client) root.getElement().getDato(i).getElement();
+                Cliente currentClient = (Cliente) root.getElement().getDato(i).getElement();
                 System.out.println("--> " + currentClient.getLastName());
             }
             preOrden(root.getLeftSon());

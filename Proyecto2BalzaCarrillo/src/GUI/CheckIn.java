@@ -11,13 +11,25 @@ import static main.main.reservas;
 import static main.main.rooms;
 import Hotel.Cliente;
 
+import Functions.Funciones;
+import Functions.Habitacion;
+import Hashtable.Cliente;
+import javax.swing.JOptionPane;
+import static main.main.reservas;
+import static main.main.rooms;
+
 /**
  *
  * @author nelsoncarrillo
  */
 public class CheckIn extends javax.swing.JFrame {
+    
+    //Atributos de la clase 
     private final MenuPrincipal menu;
+    private Cliente cliente;
+    private int hab;
 
+    Funciones use = new Funciones();
     /**
      * Creates new form CheckIn
      * @param men
@@ -62,7 +74,8 @@ public class CheckIn extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Atras.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        Atras.setBackground(new java.awt.Color(255, 204, 204));
+        Atras.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         Atras.setText("Atrás");
         Atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +84,7 @@ public class CheckIn extends javax.swing.JFrame {
         });
         jPanel1.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
+        cedula.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cedulaActionPerformed(evt);
@@ -78,7 +92,8 @@ public class CheckIn extends javax.swing.JFrame {
         });
         jPanel1.add(cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 130, -1));
 
-        aceptar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        aceptar.setBackground(new java.awt.Color(255, 204, 204));
+        aceptar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         aceptar.setText("Aceptar");
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,31 +102,34 @@ public class CheckIn extends javax.swing.JFrame {
         });
         jPanel1.add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
-        title.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        title.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
         title.setText("Recibo de ");
         jPanel1.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         datos.setColumns(20);
+        datos.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
         datos.setRows(5);
         jScrollPane1.setViewportView(datos);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 430, 110));
 
-        ingresar.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        ingresar.setBackground(new java.awt.Color(255, 204, 204));
+        ingresar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         ingresar.setText("Ingresar al Hotel");
         jPanel1.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
 
-        cancel.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        cancel.setBackground(new java.awt.Color(255, 204, 204));
+        cancel.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         cancel.setText("Cancelar");
         jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 120, -1));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese Cédula, recuerde que debe tener una reservación hecha.");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Número de Cédula:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 20));
@@ -144,7 +162,7 @@ public class CheckIn extends javax.swing.JFrame {
     }//GEN-LAST:event_AtrasActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-  
+
         try{
             String cedulaStr = cedula.getText().trim();
             cedulaStr = cedulaStr.replace(".", "");
