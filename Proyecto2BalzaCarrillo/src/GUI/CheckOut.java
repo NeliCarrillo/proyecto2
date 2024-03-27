@@ -6,6 +6,8 @@ package GUI;
 
 import Functions.Funciones;
 import Hashtable.Cliente;
+import javax.swing.JOptionPane;
+import static main.main.hash;
 
 /**
  *
@@ -122,7 +124,38 @@ public class CheckOut extends javax.swing.JFrame {
     }//GEN-LAST:event_AtrasActionPerformed
 
     private void acceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptActionPerformed
-        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea culminar su estadia en el hotel?");
+        if (confirm == 0){
+            try{
+                String fName = name.getText().replace(" ", "");
+                String nombre = fName.substring(0, 1).toUpperCase() + fName.substring(1);
+                String lName = surname.getText().replace(" ", "");
+                String apellido = lName.substring(0, 1).toUpperCase() + lName.substring(1); 
+                if(use.containsNumbers(nombre) || use.containsNumbers(apellido)){
+                        JOptionPane.showMessageDialog(null, "ERROR - Por favor recuerde no ingresar numeros");
+                        name.setText("");
+                        surname.setText("");
+                } else{
+                    cliente = hash.obtenerCliente(nombre, apellido);
+                    if (cliente != null){
+                        use.checkOut(cliente);
+                        JOptionPane.showMessageDialog(null, "Checkout exitoso\nEsperamos haya disfrutado su estadia, vuelva pronto!");
+                        cliente = null;
+                } else{
+                        JOptionPane.showMessageDialog(null, "El cliente "+nombre+" "+apellido+" no se encuentra hospedado en el hotel actualmente");
+
+                    }
+                }
+                name.setText("");
+                surname.setText("");
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "ERROR - Recuerde ingresar un nombre y un apellido");
+        }
+          
+        } else{
+            name.setText("");
+            surname.setText("");
+        }
     }//GEN-LAST:event_acceptActionPerformed
 
     /**

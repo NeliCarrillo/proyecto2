@@ -3,13 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-import FuncionesVarias.Funciones;
+import Functions.Funciones;
 import Functions.Habitacion;
-import Hashtable.Client;
 import javax.swing.JOptionPane;
 import static main.main.reservas;
 import static main.main.rooms;
-import Hotel.Cliente;
+import Hashtable.Cliente;
 
 import Functions.Funciones;
 import Functions.Habitacion;
@@ -45,7 +44,7 @@ public class CheckIn extends javax.swing.JFrame {
         
     }
     private Cliente client;
-    private int hab;
+    private int habi;
     
         
     /**
@@ -117,11 +116,21 @@ public class CheckIn extends javax.swing.JFrame {
         ingresar.setBackground(new java.awt.Color(255, 204, 204));
         ingresar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         ingresar.setText("Ingresar al Hotel");
+        ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresarActionPerformed(evt);
+            }
+        });
         jPanel1.add(ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
 
         cancel.setBackground(new java.awt.Color(255, 204, 204));
         cancel.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
         cancel.setText("Cancelar");
+        cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelActionPerformed(evt);
+            }
+        });
         jPanel1.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -163,12 +172,12 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
 
-        try{
+         try{
             String cedulaStr = cedula.getText().trim();
             cedulaStr = cedulaStr.replace(".", "");
             int ci = Integer.parseInt(cedulaStr);
-            client = reservas.buscarReservacion(reservas.getRoot(), ci);
-            if (client != null){
+            cliente = reservas.reservationDetails(reservas.getRoot(), ci);
+            if (cliente != null){
                 hab = use.asignarHab(cliente);
                 title.setText("Recibo de "+cliente.getName()+" "+cliente.getLastName());
                 String info = "Cedula: "+ci+"\nNumero de habitacion asignado: "+hab+"\nTipo de habitacion: "+cliente.getTipoHab();
@@ -185,6 +194,37 @@ public class CheckIn extends javax.swing.JFrame {
             cedula.setText("");
         }
     }//GEN-LAST:event_aceptarActionPerformed
+
+    private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
+ try{
+        cliente.setRoomNum(hab);
+        use.checkIn(cliente);
+        JOptionPane.showMessageDialog(null, "Bienvenido! Esperamos disfrute su estadia");
+        cedula.setText("");
+        title.setText("Recibo de ");
+        datos.setText("");
+        cliente = null;}
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Recuerde ingresar una cedula valida!");
+        }      
+    }//GEN-LAST:event_ingresarActionPerformed
+
+    private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
+        if (cliente != null){
+        int choice = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea cancelar el check-in?\nSe eliminara la habitacion asignada");
+        if (choice != 1){
+            JOptionPane.showMessageDialog(null, "Reservacion cancelada");
+            Habitacion roomActual  = (Habitacion) rooms.getDato(hab-1).getElement();
+            roomActual.setFree(true);
+            cedula.setText("");
+            title.setText("Recibo de ");
+            datos.setText(""); 
+            cliente = null;
+        } } else{
+            JOptionPane.showMessageDialog(null, "No existe ningun check-in activo, ingrese una cedula para iniciar");
+        }
+    
+    }//GEN-LAST:event_cancelActionPerformed
 
     /**
      * @param args the command line arguments
