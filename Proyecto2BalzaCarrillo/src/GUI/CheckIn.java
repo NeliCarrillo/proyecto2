@@ -3,6 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+import FuncionesVarias.Funciones;
+import Functions.Habitacion;
+import Hashtable.Client;
+import javax.swing.JOptionPane;
+import static main.main.reservas;
+import static main.main.rooms;
+import Hotel.Cliente;
 
 /**
  *
@@ -25,7 +32,10 @@ public class CheckIn extends javax.swing.JFrame {
         this.cedula.setText("");
         
     }
-
+    private Cliente client;
+    private int hab;
+    
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -139,8 +149,8 @@ public class CheckIn extends javax.swing.JFrame {
             String cedulaStr = cedula.getText().trim();
             cedulaStr = cedulaStr.replace(".", "");
             int ci = Integer.parseInt(cedulaStr);
-            cliente = reservas.reservationDetails(reservas.getRoot(), ci);
-            if (cliente != null){
+            client = reservas.buscarReservacion(reservas.getRoot(), ci);
+            if (client != null){
                 hab = use.asignarHab(cliente);
                 title.setText("Recibo de "+cliente.getName()+" "+cliente.getLastName());
                 String info = "Cedula: "+ci+"\nNumero de habitacion asignado: "+hab+"\nTipo de habitacion: "+cliente.getTipoHab();
