@@ -145,7 +145,7 @@ public class HistorialHabitacion extends javax.swing.JFrame {
                 String info = "";
                 for (int i = 0; i < history.getSize(); i++) {
                     Cliente cliente = (Cliente) history.getDato(i).getElement();
-                    info += "~ "+cliente.getName()+" "+cliente.getLastName()+" CI: "+cliente.getCedula()+"\n";
+                    info += "~ "+cliente.getName()+" "+cliente.getLastName()+"\n";
                 }
                 datos.setText(info);
                 hab.setText("");
