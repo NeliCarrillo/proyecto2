@@ -17,6 +17,10 @@ import Hashtable.Lista;
 *                Hecho por: Nelson Carrillo
 *                           Tito Balza
 * 
+*  NOTA: descargar la libreria java (archivo .jar) 
+* a trav&eacute;s de este link:
+* http://www.java2s.com/Code/JarDownload/javacsv/javacsv.jar.zip
+* 
 * @author nelsoncarrillo & tito_
 */
 public class main {
